@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://7v5m3lu6n5lv"]
+
+[ext_resource type="Script" path="res://scripts/falling_platform.gd" id="1_sew12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
+size = Vector2(250, 100)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gacv5"]
+size = Vector2(250, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
+size = Vector2(250, 30)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_sew12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fybig")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_gacv5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_76pf0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
