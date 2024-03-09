@@ -38,5 +38,10 @@ scale = Vector2(40, 40)
 [node name="Viewport" type="CollisionShape2D" parent="StringDetector"]
 shape = SubResource("CircleShape2D_0n1aq")
 
+[node name="WallCheck" type="RayCast2D" parent="."]
+position = Vector2(34, -33)
+target_position = Vector2(28, 0)
+hit_from_inside = true
+
 [connection signal="body_entered" from="StringDetector" to="." method="_on_string_detector_body_entered"]
 [connection signal="body_exited" from="StringDetector" to="." method="_on_string_detector_body_exited"]

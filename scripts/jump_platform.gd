@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 ## The force applied to the player when jumping.
 @export var jump_force = 1000

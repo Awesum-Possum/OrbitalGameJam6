@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=19 format=3 uid="uid://c62xka6a8jhtp"]
 
+[ext_resource type="Script" path="res://scripts/initial_scene.gd" id="1_eecij"]
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
 [ext_resource type="Texture2D" uid="uid://c61rdgy6lodte" path="res://assets/FarTree.png" id="2_md7si"]
@@ -7,7 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_xpefr"]
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="4_6b7q3"]
 [ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_xpx8k"]
+[ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="6_ibg20"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
+[ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
+[ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="10_o4wmy"]
+[ext_resource type="PackedScene" path="res://ground_of_death.tscn" id="13_32e1n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -30,6 +35,7 @@ adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_eecij")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(4, 4)
@@ -72,7 +78,11 @@ motion_mirroring = Vector2(480, 0)
 texture = ExtResource("4_xpx8k")
 centered = false
 
+[node name="Darkness" type="CanvasModulate" parent="ParallaxBackground"]
+color = Color(0.0392157, 0.0352941, 0.152941, 1)
+
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
+unique_name_in_owner = true
 position = Vector2(575, 302)
 
 [node name="Platform" type="StaticBody2D" parent="."]
@@ -93,6 +103,10 @@ color = Color(0.0392157, 0.0352941, 0.152941, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dstd6")
 
+[node name="SpiderPlatform" parent="." instance=ExtResource("6_ibg20")]
+position = Vector2(-100, 500)
+stuck_force = 1.5
+
 [node name="JumpPlatform" parent="." instance=ExtResource("3_xpefr")]
 position = Vector2(1033, 347)
 
@@ -103,7 +117,7 @@ position = Vector2(1889, 374)
 position = Vector2(1474, 367)
 
 [node name="Stele" parent="." instance=ExtResource("8_r33a5")]
-position = Vector2(246, 351)
+position = Vector2(246, 352.935)
 scale = Vector2(4, 4)
 
 [node name="Platform2" type="StaticBody2D" parent="."]
@@ -121,3 +135,11 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Stele2" parent="." instance=ExtResource("8_r33a5")]
 position = Vector2(3331, 30)
 scale = Vector2(4, 4)
+
+[node name="WhiteScreen" parent="." instance=ExtResource("10_2sl5t")]
+
+[node name="WallOfDeath" parent="." instance=ExtResource("10_o4wmy")]
+position = Vector2(-642, 317)
+
+[node name="GroundOfDeath" parent="." instance=ExtResource("13_32e1n")]
+position = Vector2(1559, 2659)

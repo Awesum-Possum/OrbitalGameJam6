@@ -13,6 +13,7 @@ size = Vector2(250, 30)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 freeze = true
+freeze_mode = 1
 script = ExtResource("1_sew12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

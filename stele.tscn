@@ -1,8 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd7vx5ipurp0a"]
+[gd_scene load_steps=22 format=3 uid="uid://cd7vx5ipurp0a"]
 
 [ext_resource type="Script" path="res://scripts/stele.gd" id="1_ggsdu"]
+[ext_resource type="Texture2D" uid="uid://ctfvoh17bkmhx" path="res://assets/SteleDeactivated.png" id="2_g3d7v"]
 [ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="2_hv5oi"]
 [ext_resource type="Texture2D" uid="uid://cpdxl2n0x1jm8" path="res://assets/Stele.png" id="2_hvdmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmtva"]
+atlas = ExtResource("2_g3d7v")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_664c6"]
 atlas = ExtResource("2_hvdmp")
@@ -28,8 +33,48 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("2_hvdmp")
 region = Rect2(320, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_16h3g"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlnjk"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8xeb"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsr68"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lynqf"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2u1y"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd2k5"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3sj3"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(832, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn3cr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmtva")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_664c6")
@@ -52,26 +97,61 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16h3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlnjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8xeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsr68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lynqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2u1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd2k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3sj3")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yow0"]
 radius = 18.0
 
 [node name="Stele" type="Area2D"]
+texture_filter = 1
 position = Vector2(0, -32)
 script = ExtResource("1_ggsdu")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fn3cr")
+animation = &"explosion"
 autoplay = "default"
+frame_progress = 0.496308
 
 [node name="Light" parent="." instance=ExtResource("2_hv5oi")]
 position = Vector2(0, -7)
+min_energy = 0.3
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_6yow0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animation_finished"]

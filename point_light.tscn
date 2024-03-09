@@ -10,11 +10,13 @@ metadata/_edit_group_ = true
 
 [node name="TextureLight" type="PointLight2D" parent="."]
 energy = 0.7
+range_layer_min = -200
 texture = ExtResource("1_fejib")
 texture_scale = 2.5
 
 [node name="Shadow" type="PointLight2D" parent="."]
 energy = 0.5
+range_layer_min = -200
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 3.0
