@@ -1,16 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=2 format=3 uid="uid://c62xka6a8jhtp"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_b7ycl"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_atvex"]
+[ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_b7ycl")
-
-[node name="AnimatedSprite2D" type="Sprite2D" parent="Player"]
-scale = Vector2(65, 51)
-texture = SubResource("ImageTexture_atvex")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="Player" parent="." instance=ExtResource("1_v77as")]
+position = Vector2(575, 302)
