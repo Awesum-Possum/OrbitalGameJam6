@@ -3,3 +3,6 @@ extends Node
 
 ## The gravity of the world.
 const GRAVITY = 4000
+
+signal game_over
+signal victory

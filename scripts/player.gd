@@ -20,8 +20,16 @@ var string_target_reachable = []
 @onready var light = $Light
 @onready var physical_string = $PhysicalString
 
+var game_over = false
+
+func _ready():
+	Globals.game_over.connect(func(): game_over = true)
+
 
 func _physics_process(delta):
+	if game_over:
+		return
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += Globals.GRAVITY * delta
