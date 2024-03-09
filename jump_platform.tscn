@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bv35v55dwva35"]
 
-[ext_resource type="Script" path="res://jump_platform.gd" id="1_vvpke"]
+[ext_resource type="Script" path="res://scripts/jump_platform.gd" id="1_g78vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oemh"]
 size = Vector2(500, 1)
@@ -14,7 +14,7 @@ size = Vector2(500, 99)
 [node name="StaticBody2D" type="StaticBody2D"]
 
 [node name="JumpArea" type="Area2D" parent="."]
-script = ExtResource("1_vvpke")
+script = ExtResource("1_g78vv")
 jump_force = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpArea"]

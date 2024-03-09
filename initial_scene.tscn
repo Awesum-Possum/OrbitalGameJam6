@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=15 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_xpefr"]
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://FallingPlatform.tscn" id="4_6b7q3"]
 [ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_xpx8k"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="6_xvxpq"]
+[ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -35,14 +37,17 @@ scale = Vector2(4, 4)
 transform = Transform2D(4, 0, 0, 4, 0, 0)
 
 [node name="FlatColor" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
 motion_scale = Vector2(0, 0)
 motion_mirroring = Vector2(480, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FlatColor"]
+texture_filter = 1
 texture = ExtResource("1_lb7fg")
 centered = false
 
 [node name="FarTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
 motion_scale = Vector2(0.1, 0)
 motion_mirroring = Vector2(480, 0)
 
@@ -51,6 +56,7 @@ texture = ExtResource("2_md7si")
 centered = false
 
 [node name="MiddleTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
 motion_scale = Vector2(0.2, 0)
 motion_mirroring = Vector2(480, 0)
 
@@ -59,6 +65,7 @@ texture = ExtResource("3_hjamb")
 centered = false
 
 [node name="FrontTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
 motion_scale = Vector2(0.3, 0)
 motion_mirroring = Vector2(480, 0)
 
@@ -66,8 +73,9 @@ motion_mirroring = Vector2(480, 0)
 texture = ExtResource("4_xpx8k")
 centered = false
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_v77as")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
+script = ExtResource("6_xvxpq")
 friction = 0.2
 
 [node name="Platform" type="StaticBody2D" parent="."]
@@ -83,7 +91,6 @@ shape = SubResource("RectangleShape2D_fi7y5")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Darkness" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0.0392157, 0.0352941, 0.152941, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -99,3 +106,11 @@ position = Vector2(1889, 374)
 position = Vector2(1474, 367)
 max_contacts_reported = 10
 contact_monitor = true
+
+[node name="Stele" parent="." instance=ExtResource("8_r33a5")]
+position = Vector2(216, 417)
+scale = Vector2(0.5, 0.5)
+
+[node name="Stele2" parent="." instance=ExtResource("8_r33a5")]
+position = Vector2(877, 209)
+scale = Vector2(0.5, 0.5)
