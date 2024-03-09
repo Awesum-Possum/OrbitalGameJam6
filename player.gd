@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed = 1200
 @export var gravity = 4000
@@ -23,4 +23,11 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
+	move_and_slide()
+
+
+## Makes the player jump.
+## @param force: The force of the jump.
+func jump(force: int = 100):
+	velocity.y = -force
 	move_and_slide()

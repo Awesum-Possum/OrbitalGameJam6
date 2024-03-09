@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=9 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_tgnor"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
+[ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_xpefr"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -30,7 +31,7 @@ position = Vector2(574, 315.5)
 scale = Vector2(9.03125, 4.85156)
 texture = ExtResource("1_tgnor")
 
-[node name="Player" parent="." instance=ExtResource("1_v77as")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
 friction = 0.2
 
@@ -44,9 +45,13 @@ mesh = SubResource("QuadMesh_nh1hs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_fi7y5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Darkness" type="CanvasModulate" parent="."]
 color = Color(0.0392157, 0.0352941, 0.152941, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dstd6")
+
+[node name="JumpPlatform" parent="." instance=ExtResource("3_xpefr")]
+position = Vector2(1033, 347)
