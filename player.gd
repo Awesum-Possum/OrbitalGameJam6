@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed = 1200
 @export var gravity = 4000
 @export var jump_velocity = 1800
+@export_range(0.0, 1.0) var friction = 0.1
+@export_range(0.0, 1.0) var acceleration = 0.25
 
 
 func _physics_process(delta):
@@ -15,12 +17,10 @@ func _physics_process(delta):
 		# minus since jump up is negative
 		velocity.y = -jump_velocity
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
-		velocity.x = direction * speed
+		velocity.x = lerp(velocity.x, direction * speed, acceleration)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.x = lerp(velocity.x, 0.0, friction)
 
 	move_and_slide()
