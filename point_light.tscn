@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi3oqddwfmtta"]
+[gd_scene load_steps=3 format=3 uid="uid://bi3oqddwfmtta"]
 
+[ext_resource type="Script" path="res://scripts/point_light.gd" id="1_e0yan"]
 [ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="1_fejib"]
 
-[node name="Light" type="Node2D"]
+[node name="Light" type="Node2D" groups=["light"]]
 position = Vector2(0, -32)
+script = ExtResource("1_e0yan")
 metadata/_edit_group_ = true
 
 [node name="TextureLight" type="PointLight2D" parent="."]
