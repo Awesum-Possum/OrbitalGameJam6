@@ -11,6 +11,8 @@ class_name Player extends CharacterBody2D
 ## The acceleration of the player.
 @export_range(0.0, 1.0) var acceleration = 0.25
 
+@onready var light = $Light
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -39,3 +41,8 @@ func _physics_process(delta):
 func jump(force: int = 100):
 	velocity.y = -force
 	move_and_slide()
+
+func regen_light():
+	print("Regen Light")
+	light.reset()
+	

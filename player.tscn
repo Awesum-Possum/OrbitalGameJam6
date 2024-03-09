@@ -25,3 +25,4 @@ position_smoothing_enabled = true
 
 [node name="Light" parent="." instance=ExtResource("3_sde1v")]
 position = Vector2(0, -33)
+decays = true
