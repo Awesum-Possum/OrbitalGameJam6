@@ -12,6 +12,7 @@ size = Vector2(999, 101)
 
 [node name="Player" parent="." instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
+friction = 0.2
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(611, 529)
