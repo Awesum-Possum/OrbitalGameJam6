@@ -142,10 +142,11 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fn3cr")
 animation = &"explosion"
 autoplay = "default"
-frame_progress = 0.709496
+frame_progress = 0.496308
 
 [node name="Light" parent="." instance=ExtResource("2_hv5oi")]
 position = Vector2(0, -7)
+min_energy = 0.3
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
