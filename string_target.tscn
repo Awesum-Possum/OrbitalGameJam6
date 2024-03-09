@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://duw0purl2myp5"]
+[gd_scene load_steps=2 format=3 uid="uid://dx4vij7bgwyrv"]
 
-[ext_resource type="Script" path="res://scripts/StringTarget.gd" id="1_8fko2"]
+[ext_resource type="Script" path="res://scripts/StringTarget.gd" id="1_hxyyd"]
 
-[node name="StringTarget" type="Node2D"]
-script = ExtResource("1_8fko2")
+[node name="StringTarget" type="Area2D"]
+script = ExtResource("1_hxyyd")

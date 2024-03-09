@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=18 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="4_6b7q3"]
 [ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_xpx8k"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
+[ext_resource type="PackedScene" uid="uid://dx4vij7bgwyrv" path="res://string_target.tscn" id="9_81pp6"]
+[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="10_hp0qc"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -28,6 +30,11 @@ tonemap_mode = 3
 tonemap_white = 4.75
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktdbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlrh7"]
+size = Vector2(36.368, 7.30509)
 
 [node name="Node2D" type="Node2D"]
 
@@ -121,3 +128,20 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Stele2" parent="." instance=ExtResource("8_r33a5")]
 position = Vector2(3331, 30)
 scale = Vector2(4, 4)
+
+[node name="Branch" type="StaticBody2D" parent="."]
+position = Vector2(1024, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Branch"]
+shape = SubResource("CircleShape2D_ktdbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Branch"]
+texture = ExtResource("10_hp0qc")
+
+[node name="StringTarget" parent="Branch" instance=ExtResource("9_81pp6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Branch/StringTarget"]
+position = Vector2(-1, -1.5)
+rotation = -3.14159
+scale = Vector2(2.5297, -13.2784)
+shape = SubResource("RectangleShape2D_xlrh7")

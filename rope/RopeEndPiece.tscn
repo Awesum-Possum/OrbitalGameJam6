@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bix0fscjhqftg"]
+
+[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_ggq3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6vpk"]
+radius = 2.0
+
+[node name="RopeEndPiece" type="RigidBody2D"]
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s6vpk")
+
+[node name="Pin" type="PinJoint2D" parent="C"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.107)
+texture = ExtResource("1_ggq3w")

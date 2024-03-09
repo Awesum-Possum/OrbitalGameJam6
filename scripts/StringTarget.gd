@@ -1,6 +1,5 @@
-extends Node2D
+extends Area2D
 
-@export var sprite = Sprite2D.new();
 const IS_STRING_TARGET = 0;
 
 signal string_to_me
@@ -14,7 +13,7 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _input(event):
+func _input_event(viewport: Object, event: InputEvent, shape_idx: int):
 	if Input.is_action_just_pressed("string_launched"):
-		if sprite.get_rect().has_point(to_local(event.position)):
-			emit_signal('string_to_me')
+		print("String target clicked")
+		emit_signal('string_to_me', get_parent())

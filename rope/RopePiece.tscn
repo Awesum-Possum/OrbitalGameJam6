@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://rda7cvjw33e7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_412ku"]
+size = Vector2(2, 2)
+
+[node name="RopePiece" type="RigidBody2D"]
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_412ku")
+
+[node name="Pin" type="PinJoint2D" parent="C"]

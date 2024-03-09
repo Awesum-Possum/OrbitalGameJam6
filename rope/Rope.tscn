@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ir4goq16iq8l"]
+
+[ext_resource type="Script" path="res://scripts/rope_render.gd" id="1_tkrgd"]
+
+[node name="Rope" type="Node2D"]
+script = ExtResource("1_tkrgd")

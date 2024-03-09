@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5v1c8h8ovbf7"]
+
+[ext_resource type="Script" path="res://scripts/physical_string.gd" id="1_7sk61"]
+[ext_resource type="PackedScene" uid="uid://bix0fscjhqftg" path="res://rope/RopeEndPiece.tscn" id="2_1dkf1"]
+
+[node name="PhysicalString" type="Node2D"]
+script = ExtResource("1_7sk61")
+
+[node name="RopeStartPiece" parent="." instance=ExtResource("2_1dkf1")]
+
+[node name="RopeEndPiece" parent="." instance=ExtResource("2_1dkf1")]
