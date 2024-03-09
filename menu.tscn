@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://bccm6230fp6c7"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_3n5el"]
+
+[sub_resource type="GDScript" id="GDScript_ro3ij"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+# back to the previous scene
+func _on_back_pressed():
+	pass
+	
+"
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_3n5el")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.998391, 0.997753)
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Run" type="Button" parent="MarginContainer/Main"]
+layout_mode = 2
+text = "Run"
+
+[node name="Credits" type="Button" parent="MarginContainer/Main"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer/Main"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Credits" type="Control" parent="MarginContainer"]
+layout_mode = 2
+script = SubResource("GDScript_ro3ij")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -62.0
+offset_right = 186.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.04055, 1.45228)
+
+[node name="Raffaele" type="Label" parent="MarginContainer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Atlas97: music and development."
+
+[node name="Zacharie" type="Label" parent="MarginContainer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Zacharie: development director."
+
+[node name="Victor" type="Label" parent="MarginContainer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Victor: development director."
+
+[node name="Sebastien" type="Label" parent="MarginContainer/Credits/VBoxContainer"]
+layout_mode = 2
+text = "Sebastien: graphics design and development."
+
+[node name="Back" type="Button" parent="MarginContainer/Credits"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.2717
+offset_top = -48.9485
+offset_right = 68.7283
+offset_bottom = -17.9485
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back to menu"
+
+[connection signal="pressed" from="MarginContainer/Main/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/Credits/Back" to="." method="_on_back_pressed"]
