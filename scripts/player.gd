@@ -17,7 +17,7 @@ var stuck_force = 0
 var string_attached = false
 var string_target_reachable = []
 
-@onready var light = $Light
+@onready var light: MyLight = $Light
 @onready var physical_string = $PhysicalString
 
 
