@@ -11,6 +11,10 @@ class_name Player extends CharacterBody2D
 ## The acceleration of the player.
 @export_range(0.0, 1.0) var acceleration = 0.25
 
+@export_range(0.0, 1.0) var wall_friction = 0.1
+
+@onready var wall_check = $WallCheck
+
 ## A modifier on the players speed when stuck.
 var stuck_force = 0
 
@@ -21,23 +25,29 @@ var string_target_reachable = []
 @onready var physical_string = $PhysicalString
 
 var game_over = false
+var face_right = true
 
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
 
+func hits_wall() -> bool:
+	return wall_check.is_colliding() and not is_on_floor()
 
 func _physics_process(delta):
 	if game_over:
 		return
 
+	if not is_on_floor() and hits_wall():
+		velocity.y += Globals.GRAVITY * delta * wall_friction
 	# Add the gravity.
-	if not is_on_floor():
+	elif not is_on_floor():
 		velocity.y += Globals.GRAVITY * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or hits_wall()):
 		# minus since jump up is negative
 		velocity.y -= jump_velocity
+
 
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
@@ -54,6 +64,13 @@ func _physics_process(delta):
 
 	if stuck_force > 0:
 		velocity /= stuck_force
+
+	if not face_right and velocity.x > 0:
+		face_right = true
+		scale.x *= -1
+	elif face_right and velocity.x < 0:
+		face_right = false 
+		scale.x *= -1
 
 	move_and_slide()
 

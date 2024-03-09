@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://mn6i6cl68a65"]
+
+[ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="1_6ugp2"]
+[ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="2_s4hlx"]
+
+[node name="ZacTest" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(384, 1085)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(848, 669)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(1315, 669)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(613, 760)
+rotation = -1.5708
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(1089, 412)
+rotation = -1.5708
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("1_6ugp2")]
+position = Vector2(369, 562)
+rotation = 1.5708
+
+[node name="Player" parent="." instance=ExtResource("2_s4hlx")]
+position = Vector2(306, 873)
+jump_velocity = 1300
