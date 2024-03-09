@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=8 format=3 uid="uid://c62xka6a8jhtp"]
 
+[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_tgnor"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
@@ -8,7 +9,26 @@ size = Vector2(1000, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi7y5"]
 size = Vector2(999, 101)
 
+[sub_resource type="Gradient" id="Gradient_wvwlb"]
+offsets = PackedFloat32Array(0, 0.570895, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.451493, 0.451493, 0.451493, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2w4r"]
+gradient = SubResource("Gradient_wvwlb")
+
+[sub_resource type="Environment" id="Environment_dstd6"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 4.75
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
+
 [node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574, 315.5)
+scale = Vector2(9.03125, 4.85156)
+texture = ExtResource("1_tgnor")
 
 [node name="Player" parent="." instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
@@ -24,3 +44,9 @@ mesh = SubResource("QuadMesh_nh1hs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_fi7y5")
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.0392157, 0.0352941, 0.152941, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dstd6")
