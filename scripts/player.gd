@@ -11,6 +11,9 @@ class_name Player extends CharacterBody2D
 ## The acceleration of the player.
 @export_range(0.0, 1.0) var acceleration = 0.25
 
+## A modifier on the players speed when stuck.
+var stuck_force = 0
+
 @onready var light = $Light
 
 
@@ -22,7 +25,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		# minus since jump up is negative
-		velocity.y = -jump_velocity
+		velocity.y -= jump_velocity
 
 	var direction = Input.get_axis("walk_left", "walk_right")
 	if direction:
@@ -33,6 +36,9 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
+	if stuck_force > 0:
+		velocity /= stuck_force
+
 	move_and_slide()
 
 
@@ -42,7 +48,7 @@ func jump(force: int = 100):
 	velocity.y = -force
 	move_and_slide()
 
+
+## Resets the light.
 func regen_light():
-	print("Regen Light")
 	light.reset()
-	

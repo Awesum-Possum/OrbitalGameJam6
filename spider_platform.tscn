@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://q14s54w1bgw7"]
+
+[ext_resource type="Script" path="res://scripts/spider_platform.gd" id="1_k0clh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_2ktj5"]
+size = Vector2(200, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqy2s"]
+size = Vector2(200, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufut5"]
+size = Vector2(200, 19.5)
+
+[node name="SpiderPlatform" type="StaticBody2D"]
+script = ExtResource("1_k0clh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_2ktj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aqy2s")
+
+[node name="StuckZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StuckZone"]
+position = Vector2(0, -24.75)
+shape = SubResource("RectangleShape2D_ufut5")
+debug_color = Color(0.988235, 0, 0.290196, 0.419608)
+
+[connection signal="body_entered" from="StuckZone" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="StuckZone" to="." method="_on_body_exited"]
