@@ -13,6 +13,8 @@ class_name Player extends CharacterBody2D
 
 @export_range(0.0, 1.0) var wall_friction = 0.1
 
+@export var wall_cooldown = 0.1
+
 @onready var wall_check = $WallCheck
 
 ## A modifier on the players speed when stuck.
@@ -26,6 +28,7 @@ var string_target_reachable = []
 
 var game_over = false
 var face_right = true
+var can_wall_jump = true
 
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
@@ -38,13 +41,21 @@ func _physics_process(delta):
 		return
 
 	if not is_on_floor() and hits_wall():
-		velocity.y += Globals.GRAVITY * delta * wall_friction
+		if velocity.y > 0:
+			velocity.y += Globals.GRAVITY * delta * wall_friction * 2
+		else:
+				velocity.y += Globals.GRAVITY * delta * wall_friction * 5
 	# Add the gravity.
 	elif not is_on_floor():
 		velocity.y += Globals.GRAVITY * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or hits_wall()):
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or (hits_wall() and can_wall_jump)):
+		if hits_wall():
+			can_wall_jump = false
+			get_tree().create_timer(wall_cooldown)\
+				.connect("timeout", func(): can_wall_jump = true)
+
 		# minus since jump up is negative
 		velocity.y -= jump_velocity
 
