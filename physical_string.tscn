@@ -1,10 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5v1c8h8ovbf7"]
 
 [ext_resource type="Script" path="res://scripts/physical_string.gd" id="1_5jyxf"]
-[ext_resource type="Texture2D" uid="uid://74fo4mlrlrhj" path="res://assets/knot.png" id="2_g1efu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bfpw3"]
 
 [node name="PhysicalString" type="Node2D"]
 script = ExtResource("1_5jyxf")
 
 [node name="StringNode" type="Sprite2D" parent="."]
-texture = ExtResource("2_g1efu")
+visible = false
+texture = SubResource("CanvasTexture_bfpw3")

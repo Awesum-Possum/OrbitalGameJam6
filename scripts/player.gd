@@ -12,7 +12,10 @@ class_name Player extends CharacterBody2D
 @export_range(0.0, 1.0) var acceleration = 0.25
 
 @onready var light = $Light
+@onready var physical_string = $PhysicalString
 
+var string_attached = false
+var string_target_reachable = []
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -32,6 +35,10 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction * speed, acceleration)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
+		
+	# Handle release of string
+	if Input.is_action_just_pressed("string_released") and string_attached:
+		_on_release_string()
 
 	move_and_slide()
 
@@ -46,3 +53,36 @@ func regen_light():
 	print("Regen Light")
 	light.reset()
 	
+func _on_activate_string(object):
+	if not string_attached:
+		string_attached = true
+		physical_string.on_target_fix(object)
+	
+	
+func _on_release_string():
+	string_attached = false
+	physical_string.on_target_release()
+
+
+# register targettable body
+func _on_string_detector_body_entered(body):
+	# add body if it is a target
+	for child in body.get_children():
+		if 'IS_STRING_TARGET' in child:
+			child.connect('string_to_me', self, '_on_activate_string')
+			string_target_reachable.append(body)
+			break
+
+# unregister targettable body
+func _on_string_detector_body_exited(body):
+	var index = string_target_reachable.find(body)
+	if index != -1:
+		
+		# find child with signal
+		for child in body.get_children():
+			if 'IS_STRING_TARGET' in child:
+				child.disconnect('string_to_me', self, '_on_activate_string')
+				break
+		
+		# remove body from list
+		string_target_reachable.remove_at(index)
