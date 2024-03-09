@@ -2,12 +2,16 @@ extends Area2D
 
 
 @export var speed = 400
+@export var player: Node2D = null
 
 var game_over = preload('res://game_over.tscn')
+
+@onready var dogs = $Dogs
 
 
 func _process(delta):
 	position.x += speed * delta
+	dogs.move(player.position.y)
 
 
 func _on_body_entered(body:Node2D):

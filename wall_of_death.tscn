@@ -1,29 +1,84 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs0a32vj83inb"]
+[gd_scene load_steps=8 format=3 uid="uid://cs0a32vj83inb"]
 
 [ext_resource type="Script" path="res://scripts/wall_of_death.gd" id="1_4p3si"]
+[ext_resource type="Script" path="res://scripts/dogs.gd" id="2_6xtfr"]
+[ext_resource type="PackedScene" uid="uid://be042o4arcd13" path="res://doggo.tscn" id="3_7xdoe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsaaf"]
-size = Vector2(265, 244)
+size = Vector2(2798, 4502)
 
 [sub_resource type="QuadMesh" id="QuadMesh_chab2"]
 
-[sub_resource type="Gradient" id="Gradient_yjjnx"]
-offsets = PackedFloat32Array(0.970779, 1)
+[sub_resource type="Gradient" id="Gradient_0hoga"]
+offsets = PackedFloat32Array(0.530686, 0.99639)
+colors = PackedColorArray(0, 0, 0, 1, 0.0588235, 0.0431373, 0.137255, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfonq"]
-gradient = SubResource("Gradient_yjjnx")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kyedx"]
+gradient = SubResource("Gradient_0hoga")
 
 [node name="WallOfDeath" type="Area2D"]
 script = ExtResource("1_4p3si")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-104.5, 0)
+position = Vector2(-1421, 0)
 shape = SubResource("RectangleShape2D_bsaaf")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(-103.75, 0)
-scale = Vector2(266.5, 243)
+position = Vector2(-1368, 0)
+scale = Vector2(2736, 4508)
 mesh = SubResource("QuadMesh_chab2")
-texture = SubResource("GradientTexture2D_kfonq")
+texture = SubResource("GradientTexture1D_kyedx")
+
+[node name="Dogs" type="Node2D" parent="."]
+position = Vector2(-181, 1.99991)
+scale = Vector2(5.34808, 5.34808)
+script = ExtResource("2_6xtfr")
+
+[node name="Doggo" parent="Dogs" instance=ExtResource("3_7xdoe")]
+frame_progress = 0.00594024
+
+[node name="Doggo2" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(40.7623, 326.846)
+frame = 2
+
+[node name="Doggo3" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(19.8202, 259.532)
+frame = 4
+
+[node name="Doggo4" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(45.4369, 211.291)
+frame = 6
+
+[node name="Doggo5" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(9.23593, 153.136)
+frame_progress = 0.986761
+
+[node name="Doggo6" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(24.9991, 89.1888)
+frame = 2
+
+[node name="Doggo7" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(4.05703, 21.8749)
+frame = 4
+
+[node name="Doggo8" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(29.6737, -26.3667)
+frame = 6
+
+[node name="Doggo9" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(17.2762, -88.4465)
+frame_progress = 0.986761
+
+[node name="Doggo10" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(33.0394, -152.393)
+frame = 2
+
+[node name="Doggo11" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(12.0973, -219.707)
+frame = 4
+
+[node name="Doggo12" parent="Dogs" instance=ExtResource("3_7xdoe")]
+position = Vector2(37.714, -267.949)
+frame = 6
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
