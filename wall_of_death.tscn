@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs0a32vj83inb"]
+
+[ext_resource type="Script" path="res://scripts/wall_of_death.gd" id="1_4p3si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsaaf"]
+size = Vector2(265, 244)
+
+[sub_resource type="QuadMesh" id="QuadMesh_chab2"]
+
+[sub_resource type="Gradient" id="Gradient_yjjnx"]
+offsets = PackedFloat32Array(0.970779, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfonq"]
+gradient = SubResource("Gradient_yjjnx")
+
+[node name="WallOfDeath" type="Area2D"]
+script = ExtResource("1_4p3si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-104.5, 0)
+shape = SubResource("RectangleShape2D_bsaaf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-103.75, 0)
+scale = Vector2(266.5, 243)
+mesh = SubResource("QuadMesh_chab2")
+texture = SubResource("GradientTexture2D_kfonq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
