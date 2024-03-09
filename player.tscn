@@ -5,22 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="3_sde1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrpt"]
-size = Vector2(63, 63)
+size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7gc77")
+jump_velocity = 1400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
+position = Vector2(0, -33)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_y2blq")
-offset = Vector2(-65, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -32.5)
+position = Vector2(0, -33)
 shape = SubResource("RectangleShape2D_qlrpt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
 [node name="Light" parent="." instance=ExtResource("3_sde1v")]
+position = Vector2(0, -33)
