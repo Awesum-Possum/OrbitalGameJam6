@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd7vx5ipurp0a"]
+
+[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_k0moj"]
+[ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="2_hv5oi"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k0moj")
+
+[node name="Light" parent="." instance=ExtResource("2_hv5oi")]

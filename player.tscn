@@ -9,7 +9,7 @@ size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7gc77")
-jump_velocity = 1400
+friction = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -33)

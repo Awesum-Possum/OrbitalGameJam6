@@ -76,7 +76,6 @@ centered = false
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
 script = ExtResource("6_xvxpq")
-friction = 0.2
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(611, 529)
