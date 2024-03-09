@@ -103,9 +103,21 @@ position = Vector2(1889, 374)
 position = Vector2(1474, 367)
 
 [node name="Stele" parent="." instance=ExtResource("8_r33a5")]
-position = Vector2(216, 417)
-scale = Vector2(0.5, 0.5)
+position = Vector2(246, 351)
+scale = Vector2(4, 4)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(2969, 208)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
+mesh = SubResource("QuadMesh_nh1hs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_fi7y5")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Stele2" parent="." instance=ExtResource("8_r33a5")]
-position = Vector2(877, 209)
-scale = Vector2(0.5, 0.5)
+position = Vector2(3331, 30)
+scale = Vector2(4, 4)

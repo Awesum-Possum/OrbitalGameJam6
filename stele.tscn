@@ -1,21 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7vx5ipurp0a"]
+[gd_scene load_steps=12 format=3 uid="uid://cd7vx5ipurp0a"]
 
 [ext_resource type="Script" path="res://scripts/stele.gd" id="1_ggsdu"]
-[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_k0moj"]
 [ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="2_hv5oi"]
+[ext_resource type="Texture2D" uid="uid://cpdxl2n0x1jm8" path="res://assets/Stele.png" id="2_hvdmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_664c6"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kne5t"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch6qy"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i5a2"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nidv"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwska"]
+atlas = ExtResource("2_hvdmp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn3cr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_664c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kne5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch6qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i5a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nidv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwska")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6yow0"]
-radius = 62.3699
+radius = 18.0
 
 [node name="Stele" type="Area2D"]
+position = Vector2(0, -32)
 script = ExtResource("1_ggsdu")
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_k0moj")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_fn3cr")
+autoplay = "default"
 
 [node name="Light" parent="." instance=ExtResource("2_hv5oi")]
+position = Vector2(0, -7)
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_6yow0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
