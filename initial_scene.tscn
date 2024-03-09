@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=14 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_xpefr"]
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="4_6b7q3"]
 [ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_xpx8k"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="6_xvxpq"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
@@ -75,7 +74,6 @@ centered = false
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 position = Vector2(575, 302)
-script = ExtResource("6_xvxpq")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(611, 529)
