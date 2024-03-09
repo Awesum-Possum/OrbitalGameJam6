@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2cpjfu06e22k"]
+[gd_scene load_steps=11 format=3 uid="uid://d2cpjfu06e22k"]
 
 [ext_resource type="Texture2D" uid="uid://bdlkvoevcrdno" path="res://assets/DeathWall.png" id="1_stlo0"]
+[ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="2_8s28d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e70oh"]
 atlas = ExtResource("1_stlo0")
@@ -67,3 +68,10 @@ scale = Vector2(1.42982, 1.39062)
 sprite_frames = SubResource("SpriteFrames_yq0fs")
 autoplay = "default"
 speed_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-9.79081, -9.19949)
+scale = Vector2(0.169383, 0.179776)
+color = Color(0.72549, 0.14902, 0.172549, 1)
+energy = 2.0
+texture = ExtResource("2_8s28d")
