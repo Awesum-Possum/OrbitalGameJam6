@@ -58,7 +58,7 @@ animations = [{
 radius = 18.0
 
 [node name="Stele" type="Area2D"]
-position = Vector2(0, -32)
+position = Vector2(0, -16)
 script = ExtResource("1_ggsdu")
 metadata/_edit_group_ = true
 
