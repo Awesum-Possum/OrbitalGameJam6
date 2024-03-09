@@ -9,7 +9,7 @@ size = Vector2(500, 1)
 size = Vector2(500, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53d3l"]
-size = Vector2(500, 100)
+size = Vector2(500, 99)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 
@@ -18,7 +18,7 @@ script = ExtResource("1_vvpke")
 jump_force = 2000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpArea"]
-position = Vector2(0, -47)
+position = Vector2(0, -50)
 shape = SubResource("RectangleShape2D_3oemh")
 debug_color = Color(0.992157, 0, 0.243137, 0.419608)
 
@@ -26,6 +26,7 @@ debug_color = Color(0.992157, 0, 0.243137, 0.419608)
 mesh = SubResource("QuadMesh_sg7td")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_53d3l")
 
 [connection signal="body_entered" from="JumpArea" to="JumpArea" method="_on_body_entered"]
