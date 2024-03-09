@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_7gc77"]
 [ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="2_y2blq"]
-[ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="3_hqus6"]
+[ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="3_sde1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrpt"]
 size = Vector2(63, 63)
@@ -23,18 +23,4 @@ shape = SubResource("RectangleShape2D_qlrpt")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Light" type="Node2D" parent="."]
-position = Vector2(0, -32)
-metadata/_edit_group_ = true
-
-[node name="TextureLight" type="PointLight2D" parent="Light"]
-energy = 0.7
-texture = ExtResource("3_hqus6")
-
-[node name="Shadow" type="PointLight2D" parent="Light"]
-energy = 0.5
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 3.0
-texture = ExtResource("3_hqus6")
-texture_scale = 0.5
+[node name="Light" parent="." instance=ExtResource("3_sde1v")]

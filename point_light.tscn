@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi3oqddwfmtta"]
+
+[ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="1_fejib"]
+
+[node name="Light" type="Node2D"]
+position = Vector2(0, -32)
+metadata/_edit_group_ = true
+
+[node name="TextureLight" type="PointLight2D" parent="."]
+energy = 0.7
+texture = ExtResource("1_fejib")
+
+[node name="Shadow" type="PointLight2D" parent="."]
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("1_fejib")
+texture_scale = 0.5
