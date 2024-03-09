@@ -1,0 +1,13 @@
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://buwoci1md66qg"]
+
+[ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="2_7ssj1"]
+[ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_8vuvv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t0lk8"]
+resource_name = "Stele"
+scenes/1/scene = ExtResource("2_7ssj1")
+scenes/2/scene = ExtResource("3_8vuvv")
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetScenesCollectionSource_t0lk8")

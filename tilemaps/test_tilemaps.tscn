@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkk0kxwly3ub1"]
+
+[ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_axhnr"]
+[ext_resource type="Texture2D" uid="uid://c61rdgy6lodte" path="res://assets/FarTree.png" id="2_d0pwp"]
+[ext_resource type="Texture2D" uid="uid://2ynqds7q7hku" path="res://assets/MiddleTree.png" id="3_yqkl3"]
+[ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_mum26"]
+[ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="5_7krei"]
+[ext_resource type="TileSet" uid="uid://buwoci1md66qg" path="res://tilemaps/level.tres" id="6_q7crq"]
+
+[sub_resource type="Gradient" id="Gradient_wvwlb"]
+offsets = PackedFloat32Array(0, 0.570895, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.451493, 0.451493, 0.451493, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2w4r"]
+gradient = SubResource("Gradient_wvwlb")
+
+[sub_resource type="Environment" id="Environment_dstd6"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 4.75
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
+
+[node name="TestTilemaps" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="FlatColor" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FlatColor"]
+texture_filter = 1
+texture = ExtResource("1_axhnr")
+centered = false
+
+[node name="FarTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarTree"]
+texture = ExtResource("2_d0pwp")
+centered = false
+
+[node name="MiddleTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MiddleTree"]
+texture = ExtResource("3_yqkl3")
+centered = false
+
+[node name="FrontTree" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FrontTree"]
+texture = ExtResource("4_mum26")
+centered = false
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("5_7krei")]
+position = Vector2(575, 302)
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0.0392157, 0.0352941, 0.152941, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dstd6")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(48, -3)
+tile_set = ExtResource("6_q7crq")
+format = 2
+layer_0/tile_data = PackedInt32Array(983060, 1, 131072, 1048615, 1, 131072, 852025, 1, 131072, 1310788, 1, 131072, 786507, 1, 131072, 851986, 1, 65536, 851990, 1, 65536, 851994, 1, 65536, 917536, 1, 65536, 917544, 1, 65536)
+
+[connection signal="body_entered" from="TileMap/Stele" to="TileMap/Stele" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@37107" to="TileMap/@Area2D@37107" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@37108" to="TileMap/@Area2D@37108" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@37109" to="TileMap/@Area2D@37109" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@37110" to="TileMap/@Area2D@37110" method="_on_body_entered"]

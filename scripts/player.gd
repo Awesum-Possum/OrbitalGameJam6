@@ -14,7 +14,11 @@ class_name Player extends CharacterBody2D
 ## A modifier on the players speed when stuck.
 var stuck_force = 0
 
+var string_attached = false
+var string_target_reachable = []
+
 @onready var light = $Light
+@onready var physical_string = $PhysicalString
 
 
 func _physics_process(delta):
@@ -36,6 +40,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
+	# Handle release of string
+	if Input.is_action_just_pressed("string_released") and string_attached:
+		_on_release_string()
+
 	if stuck_force > 0:
 		velocity /= stuck_force
 
@@ -52,3 +60,38 @@ func jump(force: int = 100):
 ## Resets the light.
 func regen_light():
 	light.reset()
+
+
+func _on_activate_string(object):
+	if not string_attached:
+		string_attached = true
+		physical_string.on_target_fix(object)
+
+
+func _on_release_string():
+	string_attached = false
+	physical_string.on_target_release()
+
+
+# register targettable body
+func _on_string_detector_body_entered(body):
+	# add body if it is a target
+	for child in body.get_children():
+		if "IS_STRING_TARGET" in child:
+			child.connect("string_to_me", self, "_on_activate_string")
+			string_target_reachable.append(body)
+			break
+
+
+# unregister targettable body
+func _on_string_detector_body_exited(body):
+	var index = string_target_reachable.find(body)
+	if index != -1:
+		# find child with signal
+		for child in body.get_children():
+			if "IS_STRING_TARGET" in child:
+				child.disconnect("string_to_me", self, "_on_activate_string")
+				break
+
+		# remove body from list
+		string_target_reachable.remove_at(index)
