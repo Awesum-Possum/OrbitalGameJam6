@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwylqcb2sfjtn"]
+
+[ext_resource type="Script" path="res://scripts/ground_of_death.gd" id="1_2h1ym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsaaf"]
+size = Vector2(2798, 4502)
+
+[sub_resource type="QuadMesh" id="QuadMesh_chab2"]
+
+[sub_resource type="Gradient" id="Gradient_0hoga"]
+offsets = PackedFloat32Array(0.530686, 0.99639)
+colors = PackedColorArray(0, 0, 0, 1, 0.0588235, 0.0431373, 0.137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kyedx"]
+gradient = SubResource("Gradient_0hoga")
+
+[node name="GroundOfDeath" type="Area2D"]
+rotation = -1.5708
+script = ExtResource("1_2h1ym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1421, 0)
+shape = SubResource("RectangleShape2D_bsaaf")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-1368, 0)
+scale = Vector2(2736, 4508)
+mesh = SubResource("QuadMesh_chab2")
+texture = SubResource("GradientTexture1D_kyedx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

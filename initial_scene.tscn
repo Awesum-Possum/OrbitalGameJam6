@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=19 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Script" path="res://scripts/initial_scene.gd" id="1_eecij"]
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bjrpitvvkilnn" path="res://assets/FrontTree.png" id="4_xpx8k"]
 [ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="6_ibg20"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
-[ext_resource type="PackedScene" path="res://white_screen.tscn" id="10_2sl5t"]
+[ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
 [ext_resource type="PackedScene" uid="uid://cs0a32vj83inb" path="res://wall_of_death.tscn" id="10_o4wmy"]
+[ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="13_32e1n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -138,6 +139,8 @@ scale = Vector2(4, 4)
 [node name="WhiteScreen" parent="." instance=ExtResource("10_2sl5t")]
 unique_name_in_owner = true
 
-[node name="WallOfDeath" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_o4wmy")]
+[node name="WallOfDeath" parent="." instance=ExtResource("10_o4wmy")]
 position = Vector2(-642, 317)
-player = NodePath("../Player")
+
+[node name="GroundOfDeath" parent="." instance=ExtResource("13_32e1n")]
+position = Vector2(1559, 2659)
