@@ -2,8 +2,6 @@ class_name Player extends CharacterBody2D
 
 ## The speed of the player.
 @export var speed = 1200
-## The gravity of the player.
-@export var gravity = 4000
 ## The velocity of the jump.
 @export var jump_velocity = 1800
 ## The air control of the player.
@@ -17,7 +15,7 @@ class_name Player extends CharacterBody2D
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += Globals.GRAVITY * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
