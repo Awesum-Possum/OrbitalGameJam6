@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=17 format=3 uid="uid://c62xka6a8jhtp"]
 
+[ext_resource type="Script" path="res://scripts/initial_scene.gd" id="1_eecij"]
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="1_v77as"]
 [ext_resource type="Texture2D" uid="uid://c61rdgy6lodte" path="res://assets/FarTree.png" id="2_md7si"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="6_ibg20"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
+[ext_resource type="PackedScene" uid="uid://cs0a32vj83inb" path="res://wall_of_death.tscn" id="10_o4wmy"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -32,6 +34,7 @@ adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_eecij")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(4, 4)
@@ -135,3 +138,7 @@ white_screen_duration = 2
 
 [node name="WhiteScreen" parent="." instance=ExtResource("10_2sl5t")]
 unique_name_in_owner = true
+
+[node name="WallOfDeath" parent="." instance=ExtResource("10_o4wmy")]
+position = Vector2(-642, 317)
+scale = Vector2(16.44, 8.52)
