@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bu0mpb7ble18m"]
+[gd_scene load_steps=19 format=3 uid="uid://biq41di0nkkax"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_w4hul"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="1_xftbk"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="5_3rg6c"]
 [ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="7_it3pt"]
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="8_vcyjv"]
-[ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="8_y6kan"]
-[ext_resource type="AudioStream" uid="uid://dj0a7htucna1h" path="res://assets/panico.ogg" id="9_73txx"]
+[ext_resource type="PackedScene" path="res://ground_of_death.tscn" id="8_y6kan"]
+[ext_resource type="AudioStream" uid="uid://wdcadp3ar1d8" path="res://assets/panico.ogg" id="9_73txx"]
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="11_0uye6"]
 [ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="12_0fqfe"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="13_26qq6"]
@@ -106,6 +106,7 @@ position = Vector2(1559, 2659)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_73txx")
 autoplay = true
+bus = &"Music"
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(764, 893)
