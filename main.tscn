@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu0mpb7ble18m"]
+[gd_scene load_steps=22 format=3 uid="uid://bu0mpb7ble18m"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_w4hul"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="1_xftbk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="12_0fqfe"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="13_26qq6"]
 [ext_resource type="PackedScene" uid="uid://bljr3wrvsbkny" path="res://raf_test.tscn" id="15_gm1k8"]
+[ext_resource type="PackedScene" uid="uid://w7rpa0kvvoew" path="res://ending_trigger.tscn" id="16_5ad58"]
 
 [sub_resource type="Gradient" id="Gradient_5j7j3"]
 offsets = PackedFloat32Array(0, 0.570895, 1)
@@ -161,7 +162,7 @@ position = Vector2(22538, -1208)
 scale = Vector2(4, 4)
 
 [node name="Stele6" parent="." instance=ExtResource("13_26qq6")]
-position = Vector2(27896, -1564)
+position = Vector2(28985, -1555)
 scale = Vector2(4, 4)
 
 [node name="Stele3" parent="." instance=ExtResource("13_26qq6")]
@@ -171,3 +172,7 @@ scale = Vector2(4, 4)
 [node name="Stele4" parent="." instance=ExtResource("13_26qq6")]
 position = Vector2(12520, 1752)
 scale = Vector2(4, 4)
+
+[node name="Area2D" parent="." instance=ExtResource("16_5ad58")]
+position = Vector2(29827, -2413)
+scale = Vector2(100, 100)

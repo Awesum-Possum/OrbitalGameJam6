@@ -38,6 +38,8 @@ var face_right = true
 var can_wall_jump = true
 var tween_facing = 0
 
+var freeze = false
+
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
 	Globals.flash.connect(regen_light)
@@ -47,7 +49,7 @@ func hits_wall() -> bool:
 	return wall_check.is_colliding() and not is_on_floor()
 
 func _physics_process(delta):
-	if game_over:
+	if game_over :
 		return
 
 	if not is_on_floor() and hits_wall() and can_wall_jump:
@@ -58,6 +60,10 @@ func _physics_process(delta):
 	# Add the gravity.
 	elif not is_on_floor():
 		velocity.y += Globals.GRAVITY * delta
+		
+	# check freeze state
+	if freeze:
+		return
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or (hits_wall() and can_wall_jump)):
@@ -164,3 +170,7 @@ func target_rotation(rot: float) -> void:
 
 	rotation_tween = create_tween()
 	rotation_tween.tween_property(pivot, "rotation_degrees", rot, rot_time)
+
+func trigger_ending():
+	freeze = true
+	
