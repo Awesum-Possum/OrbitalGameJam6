@@ -14,6 +14,7 @@ var retracted = false
 var dog_scene := preload("res://doggo.tscn")
 var game_over = preload("res://game_over.tscn")
 var _max_retract = 0
+var _trying_to_come_back = false
 
 @onready var player: Player = %Player
 @onready var mobs: Node2D = $Mobs
@@ -30,10 +31,18 @@ func _ready():
 
 
 func _process(delta):
-	if not retracted:
+	var trying_distance = retract_distance / 2.0
+	if _trying_to_come_back and position.x >= _max_retract + trying_distance:
+		_trying_to_come_back = false
+
+	if retracted and position.x > _max_retract and not _trying_to_come_back:
+		position.x -= speed * 5 * delta
+	elif retracted and position.x <= _max_retract and not _trying_to_come_back:
+		_trying_to_come_back = true
+	elif _trying_to_come_back and position.x < _max_retract + trying_distance:
 		position.x += speed * delta
-	elif position.x > _max_retract:
-		position.x -= speed * 2 * delta
+	elif not retracted:
+		position.x += speed * delta
 
 	mobs.move(player.position.y)
 
