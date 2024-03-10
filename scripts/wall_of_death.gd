@@ -69,6 +69,7 @@ func _on_body_entered(body: Node2D):
 ## Show the game over screen
 func show_game_over():
 	speed = 0
+	get_tree().current_scene.get_node('AudioStreamPlayer').playing = false
 	get_tree().root.add_child(game_over.instantiate())
 
 
