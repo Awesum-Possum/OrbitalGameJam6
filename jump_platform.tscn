@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/jump_platform.gd" id="1_g78vv"]
 [ext_resource type="AudioStream" uid="uid://b33kirnn74lum" path="res://assets/Boing.ogg" id="2_xd4wc"]
+[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="3_3kubr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3oemh"]
-size = Vector2(500, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_sg7td"]
-size = Vector2(500, 100)
+size = Vector2(66, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53d3l"]
-size = Vector2(500, 99)
+size = Vector2(70, 64)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 script = ExtResource("1_g78vv")
@@ -18,20 +16,23 @@ script = ExtResource("1_g78vv")
 [node name="JumpArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpArea"]
-position = Vector2(0, -50)
+position = Vector2(0, -38)
 shape = SubResource("RectangleShape2D_3oemh")
 debug_color = Color(0.992157, 0, 0.243137, 0.419608)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_sg7td")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_53d3l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_xd4wc")
 max_polyphony = 5
 bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_3kubr")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 96)
 
 [connection signal="body_entered" from="JumpArea" to="." method="_on_body_entered"]

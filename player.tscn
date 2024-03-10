@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://csvwlhcc36hyr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7gc77"]
-[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="2_y2blq"]
 [ext_resource type="PackedScene" uid="uid://c5v1c8h8ovbf7" path="res://physical_string.tscn" id="2_ycryk"]
+[ext_resource type="Texture2D" uid="uid://dw7tcl436auk7" path="res://assets/Player.png" id="4_2wnrc"]
 [ext_resource type="PackedScene" uid="uid://c46iyapxbup84" path="res://light2.tscn" id="4_lravf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrpt"]
-size = Vector2(64, 64)
+size = Vector2(26, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0n1aq"]
 
@@ -38,14 +38,15 @@ min_scale = 0.1
 [node name="SpritePivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="SpritePivot"]
-position = Vector2(0, -33)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_y2blq")
+texture_filter = 1
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("4_2wnrc")
 
 [node name="WallPivot" type="Node2D" parent="."]
 
 [node name="WallCheck" type="RayCast2D" parent="WallPivot"]
-position = Vector2(34, -33)
+position = Vector2(19, -33)
 target_position = Vector2(28, 0)
 hit_from_inside = true
 
