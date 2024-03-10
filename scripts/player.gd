@@ -23,7 +23,7 @@ var stuck_force = 0
 var string_attached = false
 var string_target_reachable = []
 
-@onready var light: MyLight = $Light
+@onready var light: Light2 = $Light
 @onready var physical_string = $PhysicalString
 
 var game_over = false
@@ -32,6 +32,8 @@ var can_wall_jump = true
 
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
+	Globals.flash.connect(regen_light)
+	Globals.start_again.connect(func(): light.start_decay())
 
 func hits_wall() -> bool:
 	return wall_check.is_colliding() and not is_on_floor()

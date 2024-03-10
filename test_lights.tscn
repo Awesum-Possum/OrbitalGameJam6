@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkt40l60damb0"]
+
+[ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="1_hen5j"]
+[ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="2_xeexw"]
+[ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="3_tjwaj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fngwl"]
+size = Vector2(121.678, 126.224)
+
+[node name="TestLights" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(819, 773)
+scale = Vector2(13.88, 2.84)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_hen5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_fngwl")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_xeexw")]
+position = Vector2(769, 372)
+
+[node name="Stele" parent="." instance=ExtResource("3_tjwaj")]
+position = Vector2(1389, 569)

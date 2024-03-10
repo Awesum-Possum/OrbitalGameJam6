@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7gc77"]
 [ext_resource type="Texture2D" uid="uid://rjyr661ehjad" path="res://icon.svg" id="2_y2blq"]
 [ext_resource type="PackedScene" uid="uid://c5v1c8h8ovbf7" path="res://physical_string.tscn" id="2_ycryk"]
-[ext_resource type="PackedScene" uid="uid://bi3oqddwfmtta" path="res://point_light.tscn" id="3_sde1v"]
+[ext_resource type="PackedScene" uid="uid://c46iyapxbup84" path="res://light2.tscn" id="4_lravf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrpt"]
 size = Vector2(64, 64)
@@ -28,10 +28,6 @@ shape = SubResource("RectangleShape2D_qlrpt")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="Light" parent="." instance=ExtResource("3_sde1v")]
-position = Vector2(0, -33)
-decays = true
-
 [node name="StringDetector" type="Area2D" parent="."]
 scale = Vector2(40, 40)
 
@@ -42,6 +38,12 @@ shape = SubResource("CircleShape2D_0n1aq")
 position = Vector2(34, -33)
 target_position = Vector2(28, 0)
 hit_from_inside = true
+
+[node name="Light" parent="." instance=ExtResource("4_lravf")]
+position = Vector2(12.0544, -16.5544)
+scale = Vector2(20.2023, 15.3663)
+decays = true
+min_scale = 0.1
 
 [connection signal="body_entered" from="StringDetector" to="." method="_on_string_detector_body_entered"]
 [connection signal="body_exited" from="StringDetector" to="." method="_on_string_detector_body_exited"]

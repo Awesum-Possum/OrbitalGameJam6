@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c46iyapxbup84"]
+
+[ext_resource type="Texture2D" uid="uid://bt8dj215v2a22" path="res://assets/Light3Pixel.png" id="1_gk8nu"]
+[ext_resource type="Script" path="res://scripts/light2.gd" id="2_lr4xr"]
+
+[node name="PointLight2D" type="PointLight2D"]
+scale = Vector2(4.28, 4.28)
+shadow_enabled = true
+texture = ExtResource("1_gk8nu")
+script = ExtResource("2_lr4xr")
+min_scale = 1.0
