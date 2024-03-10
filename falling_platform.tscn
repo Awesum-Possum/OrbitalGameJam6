@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="3_8fp0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
-size = Vector2(32, 10)
+size = Vector2(32, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(7.375, 0.3125)
+size = Vector2(7.25, 0.8125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u7f5"]
 atlas = ExtResource("2_mkddc")

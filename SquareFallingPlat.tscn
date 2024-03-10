@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="3_322ls"]
 [ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="4_mndwk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_encus"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(8.25, 8.1875)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkocs"]
+size = Vector2(8.25, 8.3125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7gq7w"]
 atlas = ExtResource("2_3m7mk")
@@ -51,14 +51,14 @@ breaking_timer = 0.5
 falling_timer = 2.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fybig")
+shape = SubResource("RectangleShape2D_encus")
 
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 0.03125)
-shape = SubResource("RectangleShape2D_76pf0")
+shape = SubResource("RectangleShape2D_hkocs")
 debug_color = Color(0.929412, 0.0705882, 0.619608, 0.419608)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
