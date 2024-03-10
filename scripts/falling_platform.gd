@@ -30,13 +30,15 @@ func break_platform() -> void:
 		breaking = true
 		sprite.play("default")
 		particles.emitting = true
-		_audio.play()
-		area.disabled = true
-		$Area2D.monitoring = false
+		_audio.call_deferred("play")
+		area.set_deferred("disabled", true)
+		$Area2D.set_deferred("monitoring", false)
 		get_tree().create_timer(breaking_timer).timeout.connect(break_fr)
+
 
 func break_fr() -> void:
 	breaking = false
 	collider.disabled = true
+	particles.emitting = false
 	sprite.visible = false
 	get_tree().create_timer(falling_timer).timeout.connect(queue_free)

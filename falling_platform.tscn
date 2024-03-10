@@ -5,10 +5,10 @@
 [ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="3_8fp0e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
-size = Vector2(32, 10)
+size = Vector2(32, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(7.375, 0.3125)
+size = Vector2(7.25, 0.8125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u7f5"]
 atlas = ExtResource("2_mkddc")
@@ -57,7 +57,7 @@ breaking_timer = 0.5
 falling_timer = 2.0
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_fybig")
 one_way_collision = true
 
@@ -76,10 +76,11 @@ sprite_frames = SubResource("SpriteFrames_frxf5")
 [node name="Particles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 0.25)
 emitting = false
+amount = 10
 process_material = SubResource("ParticleProcessMaterial_rr2co")
 texture = SubResource("AtlasTexture_mei0t")
 lifetime = 4.0
-speed_scale = 2.51
+speed_scale = 4.0
 explosiveness = 0.19
 randomness = 0.5
 trail_enabled = true

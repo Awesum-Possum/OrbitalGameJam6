@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 	spider.scale *= 4
 	var spider_pos = position
 	spider_pos.y -= spider_height
-	get_parent().add_child(spider)
+	get_parent().call_deferred("add_child", spider)
 	spider.go_down(spider_pos, position)
 
 
