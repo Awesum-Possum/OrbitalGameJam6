@@ -47,7 +47,7 @@ func _on_animation_finished():
 		_already_exploded = true
 		_activate_white_screen()
 		_white_screen_countdown = white_screen_duration
-		wall_of_death.retract_wall()
+		wall_of_death.retract_wall(position)
 		animation.play("default")
 
 

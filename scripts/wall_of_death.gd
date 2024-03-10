@@ -51,6 +51,6 @@ func show_game_over():
 	get_tree().root.add_child(game_over.instantiate())
 
 
-func retract_wall():
+func retract_wall(stele_position: Vector2):
 	retracted = true
-	_max_retract = position.x - retract_distance
+	_max_retract = stele_position.x - retract_distance
