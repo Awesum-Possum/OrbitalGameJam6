@@ -35,6 +35,8 @@ texture_repeat = 2
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_yq0fs")
 autoplay = "default"
+frame = 1
+frame_progress = 0.27717
 speed_scale = 2.0
 offset = Vector2(0, 32)
 
@@ -47,4 +49,4 @@ texture = ExtResource("2_uqq0s")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 32)
-polygon = PackedVector2Array(-8, 1, 10, 1, 19, -4, 30, -14, 29, -26, 18, -39, 23, -44, 18, -52, 16, -63, 0, -67, -16, -63, -18, -52, -22, -45, -17, -39, -28, -26, -28, -13, -19, -5)
+polygon = PackedVector2Array(-8, 1, 10, 1, 19, -4, 30, -14, 29, -26, 24, -36, 18, -39, 23, -44, 20, -54, 16, -63, 0, -67, -16, -63, -21, -54, -22, -45, -17, -39, -24, -36, -28, -26, -28, -13, -19, -5)
