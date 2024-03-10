@@ -1,9 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://ek7huh6rcnc0"]
+[gd_scene load_steps=6 format=3 uid="uid://ek7huh6rcnc0"]
+
+[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="1_hn80a"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_vy0tp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5keg"]
 size = Vector2(1, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_br24s"]
+texture = ExtResource("1_hn80a")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wprg5"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_br24s")
 
 [node name="Platform" type="StaticBody2D"]
 position = Vector2(764, 893)
@@ -11,8 +78,16 @@ scale = Vector2(1000, 50)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 mesh = SubResource("QuadMesh_vy0tp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k5keg")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-0.764, -17.86)
+scale = Vector2(0.001, 0.02)
+tile_set = SubResource("TileSet_wprg5")
+format = 2
+layer_0/tile_data = PackedInt32Array(1769480, 0, 3, 1835016, 0, 5, 1769481, 65536, 3, 1769482, 65536, 3, 1769483, 65536, 3, 1769484, 65536, 3, 1769485, 65536, 3, 1769486, 65536, 3, 1769487, 65536, 3, 1769488, 65536, 3, 1769489, 65536, 3, 1769490, 65536, 3, 1769491, 65536, 3, 1769492, 65536, 3, 1769493, 65536, 3, 1769494, 65536, 3, 1769495, 65536, 3, 1769496, 65536, 3, 1769497, 65536, 3, 1769498, 65536, 3, 1769499, 65536, 3, 1769500, 65536, 3, 1769501, 65536, 3, 1769502, 65536, 3, 1769503, 65536, 3, 1769504, 65536, 3, 1769505, 65536, 3, 1769506, 65536, 3, 1769507, 65536, 3, 1769508, 65536, 3, 1769509, 65536, 3, 1769510, 65536, 3, 1769511, 131072, 3, 1835047, 131072, 5, 1835017, 65536, 5, 1835018, 65536, 5, 1835019, 65536, 5, 1835020, 65536, 5, 1835021, 65536, 5, 1835022, 65536, 5, 1835023, 65536, 5, 1835024, 65536, 5, 1835025, 65536, 5, 1835026, 65536, 5, 1835027, 65536, 5, 1835028, 65536, 5, 1835029, 65536, 5, 1835030, 65536, 5, 1835031, 65536, 5, 1835032, 65536, 5, 1835033, 65536, 5, 1835034, 65536, 5, 1835035, 65536, 5, 1835036, 65536, 5, 1835037, 65536, 5, 1835038, 65536, 5, 1835039, 65536, 5, 1835040, 65536, 5, 1835041, 65536, 5, 1835042, 65536, 5, 1835043, 65536, 5, 1835044, 65536, 5, 1835045, 65536, 5, 1835046, 65536, 5)
