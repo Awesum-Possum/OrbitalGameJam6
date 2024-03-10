@@ -5,6 +5,8 @@ class_name Stele extends Area2D
 @export var white_screen_duration: int = 2
 
 var _consumed = false
+var _to_explode = false
+var _already_exploded = false
 var _white_screen_countdown = 0
 
 @onready var light: MyLight = $Light
@@ -12,23 +14,20 @@ var _white_screen_countdown = 0
 @onready var white_screen: CanvasLayer = %WhiteScreen
 
 
-func process(delta):
+func _process(delta):
 	if _white_screen_countdown > 0:
 		_white_screen_countdown -= delta
 		if _white_screen_countdown <= 0:
-			light.turn_off()
+			light.reset()
+			get_tree().create_timer(light.decay_time).timeout.connect(func(): _consumed = true)
 
 
 func _on_body_entered(body: Node2D):
 	var player = body as Player
-	if not player or _consumed:
+	if not player or _to_explode:
 		return
 
-	_consumed = true
-
-	light.reset()
-	# wait for light.decay_time to finish
-	get_tree().create_timer(light.decay_time).timeout.connect(_start_explosion)
+	_to_explode = true
 
 
 func _start_explosion():
@@ -36,10 +35,17 @@ func _start_explosion():
 
 
 func _on_animation_finished():
-	if animation.animation.contains("explosion"):
+	if animation.animation.contains("default") and _to_explode and not _already_exploded:
+		animation.play("explosion")
+	elif animation.animation.contains("default") and _consumed:
+		animation.play("consume")
+	elif animation.animation.contains("consume"):
+		light.turn_off()
+	elif animation.animation.contains("explosion"):
+		_already_exploded = true
 		_activate_white_screen()
 		_white_screen_countdown = white_screen_duration
-		animation.play("dead")
+		animation.play("default")
 
 
 func _activate_white_screen():
