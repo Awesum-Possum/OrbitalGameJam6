@@ -20,7 +20,6 @@ func _process(delta):
 		_white_screen_countdown -= delta
 		if _white_screen_countdown <= 0:
 			light.reset()
-			print(light.decay_time)
 			get_tree().create_timer(light.decay_time).timeout.connect(func(): _consumed = true)
 
 
