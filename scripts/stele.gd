@@ -20,6 +20,7 @@ func _process(delta):
 		_white_screen_countdown -= delta
 		if _white_screen_countdown <= 0:
 			light.reset()
+			print(light.decay_time)
 			get_tree().create_timer(light.decay_time).timeout.connect(func(): _consumed = true)
 
 
@@ -29,14 +30,6 @@ func _on_body_entered(body: Node2D):
 		return
 
 	_to_explode = true
-
-
-	_consumed = true
-
-	#light.reset()
-	#player.regen_light()
-	# wait for light.decay_time to finish
-	get_tree().create_timer(light.decay_time).timeout.connect(_start_explosion)
 
 
 func _start_explosion():
