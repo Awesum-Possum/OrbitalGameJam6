@@ -26,6 +26,7 @@ func start_decay():
 
 ## Reset the light to their initial values
 func reset():
+	print("Calling reset of light")
 	if _tween:
 		_tween.kill()
 		_tween = null

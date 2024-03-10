@@ -49,6 +49,6 @@ func _on_animation_finished():
 
 
 func _activate_white_screen():
-	white_screen.show()
+	white_screen.show() 
 	white_screen.get_node("AudioStreamPlayer").play()
 	white_screen.get_node("AnimationPlayer").play("fade_away")

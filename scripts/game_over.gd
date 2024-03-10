@@ -2,6 +2,8 @@ extends CanvasLayer
 
 
 func _ready():
+	$Basso.play()
+	await get_tree().create_timer(2.0).timeout
 	$AudioStreamPlayer.play()
 
 
