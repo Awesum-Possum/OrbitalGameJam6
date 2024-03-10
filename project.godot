@@ -23,6 +23,9 @@ Globals="*res://global.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1024
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+window/stretch/scale_mode="integer"
 
 [input]
 
