@@ -1,11 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c46iyapxbup84"]
 
-[ext_resource type="Texture2D" uid="uid://bt8dj215v2a22" path="res://assets/Light3Pixel.png" id="1_gk8nu"]
+[ext_resource type="Texture2D" uid="uid://dob08nnst61ik" path="res://assets/Light.png" id="1_jr0cn"]
 [ext_resource type="Script" path="res://scripts/light2.gd" id="2_lr4xr"]
 
 [node name="PointLight2D" type="PointLight2D"]
+texture_filter = 1
 scale = Vector2(4.28, 4.28)
+blend_mode = 2
+range_layer_min = -200
+range_layer_max = 200
 shadow_enabled = true
-texture = ExtResource("1_gk8nu")
+texture = ExtResource("1_jr0cn")
 script = ExtResource("2_lr4xr")
 min_scale = 1.0

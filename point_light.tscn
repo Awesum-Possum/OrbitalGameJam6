@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi3oqddwfmtta"]
+[gd_scene load_steps=4 format=3 uid="uid://bi3oqddwfmtta"]
 
 [ext_resource type="Script" path="res://scripts/point_light.gd" id="1_e0yan"]
 [ext_resource type="Texture2D" uid="uid://dtjndjivdjer4" path="res://assets/lightcrop.webp" id="2_k7uvt"]
+[ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="2_wq78n"]
 
 [node name="Light" type="Node2D" groups=["light"]]
 position = Vector2(0, -32)
@@ -13,7 +14,7 @@ energy = 0.7
 blend_mode = 2
 range_layer_min = -200
 shadow_enabled = true
-texture = ExtResource("2_k7uvt")
+texture = ExtResource("2_wq78n")
 texture_scale = 2.5
 
 [node name="Shadow" type="PointLight2D" parent="."]
