@@ -14,21 +14,29 @@ class_name Player extends CharacterBody2D
 @export_range(0.0, 1.0) var wall_friction = 0.1
 
 @export var wall_cooldown = 0.1
+@export var rot = 10
+@export var rot_time = 0.2
 
-@onready var wall_check = $WallCheck
+@onready var wall_pivot: Node2D = $WallPivot
+@onready var wall_check = $WallPivot/WallCheck
 
 ## A modifier on the players speed when stuck.
 var stuck_force = 0
+
+var rotation_tween: Tween = null
 
 var string_attached = false
 var string_target_reachable = []
 
 @onready var light: Light2 = $Light
 @onready var physical_string = $PhysicalString
+@onready var sprite: Sprite2D = $SpritePivot/Sprite2D
+@onready var pivot: Node2D = $SpritePivot
 
 var game_over = false
 var face_right = true
 var can_wall_jump = true
+var tween_facing = 0
 
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
@@ -71,6 +79,19 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, friction)
 
+
+	if direction > 0 and tween_facing != 1:
+		tween_facing = 1
+		target_rotation(rot)
+	elif not direction and tween_facing != 0:
+		tween_facing = 0
+		target_rotation(0)
+	elif direction < 0 and tween_facing != -1:
+		tween_facing = -1
+		target_rotation(-rot)
+
+
+
 	# Handle release of string
 	if Input.is_action_just_pressed("string_released") and string_attached:
 		_on_release_string()
@@ -80,10 +101,12 @@ func _physics_process(delta):
 
 	if not face_right and velocity.x > 0:
 		face_right = true
-		scale.x *= -1
+		sprite.scale.x *= -1
+		wall_pivot.scale.x *= -1
 	elif face_right and velocity.x < 0:
 		face_right = false 
-		scale.x *= -1
+		sprite.scale.x *= -1
+		wall_pivot.scale.x *= -1
 
 	move_and_slide()
 
@@ -133,3 +156,11 @@ func _on_string_detector_body_exited(body):
 
 		# remove body from list
 		string_target_reachable.remove_at(index)
+
+func target_rotation(rot: float) -> void:
+	if rotation_tween:
+		rotation_tween.kill()
+		rotation_tween = null
+
+	rotation_tween = create_tween()
+	rotation_tween.tween_property(pivot, "rotation_degrees", rot, rot_time)
