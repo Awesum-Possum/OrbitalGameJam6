@@ -1,10 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://cul75ofwivoe4"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_yx622"]
+[ext_resource type="Texture2D" uid="uid://dcrsfylvmyi2c" path="res://assets/Props.png" id="1_8fudx"]
 
 [node name="WebString" type="Node2D" groups=["web"]]
 position = Vector2(0, -16)
-scale = Vector2(10, 32)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_yx622")
+[node name="MeshInstance2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8fudx")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
