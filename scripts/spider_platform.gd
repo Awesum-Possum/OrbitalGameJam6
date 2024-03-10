@@ -6,6 +6,8 @@ extends StaticBody2D
 @export var spider_height: int = 750
 
 var spider_scene := preload("res://spider.tscn")
+var _spawed_spider: Spider = null
+@onready var _spider_pos: Vector2 = position - Vector2(0, spider_height)
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -14,12 +16,15 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	player.stuck_force = stuck_force
-	var spider: Spider = spider_scene.instantiate()
-	spider.scale *= 4
-	var spider_pos = position
-	spider_pos.y -= spider_height
-	get_parent().call_deferred("add_child", spider)
-	spider.go_down(spider_pos, position)
+
+	if _spawed_spider:
+		_spawed_spider.go_down(_spider_pos, position)
+		return
+
+	_spawed_spider = spider_scene.instantiate()
+	_spawed_spider.scale *= 4
+	get_parent().call_deferred("add_child", _spawed_spider)
+	_spawed_spider.go_down(_spider_pos, position)
 
 
 func _on_body_exited(body: Node2D) -> void:
