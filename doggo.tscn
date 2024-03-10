@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d2cpjfu06e22k"]
 
-[ext_resource type="Texture2D" uid="uid://dnlbjfnfh0cmi" path="res://assets/DeathWall.png" id="1_stlo0"]
+[ext_resource type="Texture2D" uid="uid://bdlkvoevcrdno" path="res://assets/DeathWall.png" id="1_stlo0"]
 [ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="2_8s28d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e70oh"]
@@ -63,8 +63,7 @@ animations = [{
 [node name="Doggo" type="AnimatedSprite2D"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(29, 5)
-scale = Vector2(1.42982, 1.39062)
+position = Vector2(22, 5)
 sprite_frames = SubResource("SpriteFrames_yq0fs")
 autoplay = "default"
 speed_scale = 2.0

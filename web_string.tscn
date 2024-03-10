@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cul75ofwivoe4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yx622"]
+
+[node name="WebString" type="Node2D"]
+position = Vector2(0, -16)
+scale = Vector2(10, 32)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_yx622")

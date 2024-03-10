@@ -1,4 +1,4 @@
-class_name FallingPlatform extends RigidBody2D
+class_name FallingPlatform extends StaticBody2D
 ## The FallingPlatform is a platform that falls after a certain amount of time
 ## when the player steps on it.
 
@@ -8,6 +8,11 @@ class_name FallingPlatform extends RigidBody2D
 @export var falling_timer: float = 10.0
 
 var breaking: bool = false
+
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var collider: CollisionShape2D = $Collider
+@onready var particles: GPUParticles2D = $Particles
+@onready var _audio = $AudioStreamPlayer
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -22,4 +27,13 @@ func break_platform() -> void:
 	print("Breaking platform")
 	if not breaking:
 		breaking = true
-		get_tree().create_timer(breaking_timer).timeout.connect(func(): freeze = false)
+		sprite.play("default")
+		particles.emitting = true
+		_audio.play()
+		get_tree().create_timer(breaking_timer).timeout.connect(break_fr)
+
+func break_fr() -> void:
+	breaking = false
+	collider.disabled = true
+	sprite.visible = false
+	get_tree().create_timer(falling_timer).timeout.connect(queue_free)

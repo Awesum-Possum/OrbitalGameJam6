@@ -1,13 +1,16 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://buwoci1md66qg"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://buwoci1md66qg"]
 
-[ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="2_7ssj1"]
-[ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="3_8vuvv"]
+[ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="1_yxb6r"]
+[ext_resource type="PackedScene" uid="uid://dx5va8mi33d3s" path="res://falling_platform_mid.tscn" id="2_jbg5h"]
+[ext_resource type="PackedScene" uid="uid://c5eqhxgtl7w1u" path="res://falling_platform_right.tscn" id="3_7snb7"]
+[ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="4_e5go0"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t0lk8"]
-resource_name = "Stele"
-scenes/1/scene = ExtResource("2_7ssj1")
-scenes/2/scene = ExtResource("3_8vuvv")
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bq6ri"]
+scenes/1/scene = ExtResource("1_yxb6r")
+scenes/2/scene = ExtResource("2_jbg5h")
+scenes/3/scene = ExtResource("3_7snb7")
+scenes/4/scene = ExtResource("4_e5go0")
 
 [resource]
 tile_size = Vector2i(32, 32)
-sources/1 = SubResource("TileSetScenesCollectionSource_t0lk8")
+sources/0 = SubResource("TileSetScenesCollectionSource_bq6ri")
