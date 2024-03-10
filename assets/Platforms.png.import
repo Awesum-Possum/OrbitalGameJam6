@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jcu30nmcb57k"
-path="res://.godot/imported/Light3Pixel.png-ee70d46918b3debc63a4159c406d4f05.ctex"
+uid="uid://bktphji27ec61"
+path="res://.godot/imported/Platforms.png-6dd9f8596b44f88a8025792705dd5d06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Light3Pixel.png"
-dest_files=["res://.godot/imported/Light3Pixel.png-ee70d46918b3debc63a4159c406d4f05.ctex"]
+source_file="res://assets/Platforms.png"
+dest_files=["res://.godot/imported/Platforms.png-6dd9f8596b44f88a8025792705dd5d06.ctex"]
 
 [params]
 
