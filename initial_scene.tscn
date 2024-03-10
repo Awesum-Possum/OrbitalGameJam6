@@ -79,7 +79,7 @@ texture = ExtResource("4_xpx8k")
 centered = false
 
 [node name="Darkness" type="CanvasModulate" parent="ParallaxBackground"]
-color = Color(0.0392157, 0.0352941, 0.152941, 1)
+color = Color(0.0823529, 0.0784314, 0.188235, 1)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 unique_name_in_owner = true
@@ -121,7 +121,7 @@ position = Vector2(246, 352.935)
 scale = Vector2(4, 4)
 
 [node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(2969, 208)
+position = Vector2(2790, 460)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
@@ -133,13 +133,15 @@ shape = SubResource("RectangleShape2D_fi7y5")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Stele2" parent="." instance=ExtResource("8_r33a5")]
-position = Vector2(3331, 30)
+position = Vector2(3073, 281)
 scale = Vector2(4, 4)
 
 [node name="WhiteScreen" parent="." instance=ExtResource("10_2sl5t")]
+unique_name_in_owner = true
 
 [node name="WallOfDeath" parent="." instance=ExtResource("10_o4wmy")]
-position = Vector2(-642, 317)
+unique_name_in_owner = true
+position = Vector2(-1016, 317)
 
 [node name="GroundOfDeath" parent="." instance=ExtResource("13_32e1n")]
 position = Vector2(1559, 2659)
