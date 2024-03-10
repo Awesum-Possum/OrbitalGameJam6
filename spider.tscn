@@ -36,13 +36,13 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_yq0fs")
 autoplay = "default"
 frame = 1
-frame_progress = 0.27717
+frame_progress = 0.23039
 speed_scale = 2.0
 offset = Vector2(0, 32)
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
-position = Vector2(-9.79081, -9.19949)
-scale = Vector2(0.169383, 0.179776)
+position = Vector2(0, 38)
+scale = Vector2(0.101562, 0.0859375)
 color = Color(0.72549, 0.14902, 0.172549, 1)
 energy = 2.0
 texture = ExtResource("2_uqq0s")
