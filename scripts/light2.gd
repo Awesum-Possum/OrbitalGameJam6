@@ -10,12 +10,17 @@ var _current_time: float = 0
 var _tween: Tween
 
 func _ready():
-	start_decay()
+	if decays:
+		start_decay()
 
 func start_decay():
-	if decays:
-		_tween = create_tween()
-		_tween.tween_property(self, "scale", Vector2(min_scale*init_scale, min_scale*init_scale), decay_time)
+	print("Starting decay")
+	if _tween:
+		_tween.kill()
+		_tween = null
+
+	_tween = create_tween()
+	_tween.tween_property(self, "scale", Vector2(min_scale*init_scale, min_scale*init_scale), decay_time)
 
 
 
@@ -28,7 +33,6 @@ func reset():
 	_current_time = 0
 	_tween = create_tween()
 	_tween.tween_property(self, "scale", Vector2(init_scale, init_scale), 1).set_trans(Tween.TRANS_SINE)
-	_tween.tween_callback(start_decay)
 
 
 ## Turn off the light

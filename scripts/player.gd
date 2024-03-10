@@ -32,6 +32,8 @@ var can_wall_jump = true
 
 func _ready():
 	Globals.game_over.connect(func(): game_over = true)
+	Globals.flash.connect(regen_light)
+	Globals.start_again.connect(func(): light.start_decay())
 
 func hits_wall() -> bool:
 	return wall_check.is_colliding() and not is_on_floor()

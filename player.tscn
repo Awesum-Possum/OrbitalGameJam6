@@ -40,7 +40,8 @@ target_position = Vector2(28, 0)
 hit_from_inside = true
 
 [node name="Light" parent="." instance=ExtResource("4_lravf")]
-scale = Vector2(13.2483, 13.2483)
+position = Vector2(12.0544, -16.5544)
+scale = Vector2(20.2023, 15.3663)
 decays = true
 min_scale = 0.1
 

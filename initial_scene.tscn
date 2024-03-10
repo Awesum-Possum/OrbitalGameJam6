@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
 [ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="10_o4wmy"]
-[ext_resource type="PackedScene" path="res://ground_of_death.tscn" id="13_32e1n"]
+[ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="13_32e1n"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -79,7 +79,7 @@ texture = ExtResource("4_xpx8k")
 centered = false
 
 [node name="Darkness" type="CanvasModulate" parent="ParallaxBackground"]
-color = Color(0.0823529, 0.0784314, 0.188235, 1)
+color = Color(0.427451, 0.427451, 0.729412, 1)
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_v77as")]
 unique_name_in_owner = true
