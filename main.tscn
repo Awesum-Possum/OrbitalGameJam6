@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu0mpb7ble18m"]
+[gd_scene load_steps=22 format=3 uid="uid://bu0mpb7ble18m"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_w4hul"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="1_xftbk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="13_26qq6"]
 [ext_resource type="PackedScene" uid="uid://bljr3wrvsbkny" path="res://raf_test.tscn" id="15_gm1k8"]
 [ext_resource type="PackedScene" path="res://ending_trigger.tscn" id="16_5ad58"]
+[ext_resource type="Texture2D" uid="uid://dcrsfylvmyi2c" path="res://assets/Props.png" id="17_cc485"]
 [ext_resource type="PackedScene" uid="uid://c5eqhxgtl7w1u" path="res://falling_platform_right.tscn" id="17_wanpf"]
 
 [sub_resource type="Gradient" id="Gradient_5j7j3"]
@@ -89,7 +90,7 @@ environment = SubResource("Environment_bxrys")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("5_3rg6c")]
 unique_name_in_owner = true
-position = Vector2(757, 455)
+position = Vector2(396, 713)
 scale = Vector2(2, 2)
 
 [node name="WallOfDeath" parent="." instance=ExtResource("7_it3pt")]
@@ -105,7 +106,7 @@ position = Vector2(1559, 2659)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_73txx")
-volume_db = 3.714
+volume_db = 6.0
 autoplay = true
 bus = &"Music"
 
@@ -149,7 +150,7 @@ position = Vector2(22538, -1208)
 scale = Vector2(4, 4)
 
 [node name="Stele6" parent="." instance=ExtResource("13_26qq6")]
-position = Vector2(28985, -1555)
+position = Vector2(28998, -1533)
 scale = Vector2(4, 4)
 
 [node name="Stele3" parent="." instance=ExtResource("13_26qq6")]
@@ -161,8 +162,16 @@ position = Vector2(12520, 1752)
 scale = Vector2(4, 4)
 
 [node name="Area2D" parent="." instance=ExtResource("16_5ad58")]
-position = Vector2(29827, -2413)
+position = Vector2(30180, -2406)
 scale = Vector2(100, 100)
 
 [node name="FallingPlatform2" parent="." instance=ExtResource("17_wanpf")]
 position = Vector2(2280, 869)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(29374, -1471)
+scale = Vector2(5, 3.84)
+texture = ExtResource("17_cc485")
+region_enabled = true
+region_rect = Rect2(63.3397, 0, 33.4562, 35.2508)

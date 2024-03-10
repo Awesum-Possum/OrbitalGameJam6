@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://w7rpa0kvvoew"]
+[gd_scene load_steps=4 format=3 uid="uid://w7rpa0kvvoew"]
 
 [ext_resource type="Script" path="res://scripts/ending_trigger.gd" id="1_4kmis"]
+[ext_resource type="AudioStream" uid="uid://1npw76in771x" path="res://assets/Endgame.ogg" id="2_h83ai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb88c"]
 size = Vector2(45, 20)
@@ -13,5 +14,7 @@ position = Vector2(12.5, 0)
 shape = SubResource("RectangleShape2D_eb88c")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_h83ai")
+volume_db = 20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
