@@ -17,4 +17,4 @@ func first_flash():
 		second_part.visible = true
 	
 	elif flash_count == 4:
-		print("Switch to next level")
+		get_tree().change_scene_to_file("res://main.tscn")
