@@ -12,6 +12,7 @@ var _white_screen_countdown = 0
 @onready var light: MyLight = $Light
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 @onready var white_screen: CanvasLayer = %WhiteScreen
+@onready var wall_of_death: WallOfDeath = %WallOfDeath
 
 
 func _process(delta):
@@ -41,10 +42,12 @@ func _on_animation_finished():
 		animation.play("consume")
 	elif animation.animation.contains("consume"):
 		light.turn_off()
+		wall_of_death.retracted = false
 	elif animation.animation.contains("explosion"):
 		_already_exploded = true
 		_activate_white_screen()
 		_white_screen_countdown = white_screen_duration
+		wall_of_death.retract_wall()
 		animation.play("default")
 
 
