@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cns3jtk30gqjp"]
+[gd_scene load_steps=9 format=3 uid="uid://cns3jtk30gqjp"]
 
 [ext_resource type="Script" path="res://scripts/wall_of_death.gd" id="1_4p3si"]
 [ext_resource type="Script" path="res://scripts/dogs.gd" id="2_6xtfr"]
+[ext_resource type="AudioStream" uid="uid://bmsk1epy1xpf2" path="res://assets/WallOfPhantoms.ogg" id="3_rdvaq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wpg5y"]
 light_mode = 2
@@ -20,6 +21,7 @@ gradient = SubResource("Gradient_0hoga")
 
 [node name="WallOfDeath" type="Area2D"]
 script = ExtResource("1_4p3si")
+volume_increase = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_wpg5y")
@@ -37,5 +39,11 @@ metadata/_edit_lock_ = true
 [node name="Mobs" type="Node2D" parent="."]
 scale = Vector2(5.34808, 5.34808)
 script = ExtResource("2_6xtfr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rdvaq")
+volume_db = 6.0
+autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,5 +1,6 @@
 class_name WallOfDeath extends Area2D
 
+## The speed of the wall
 @export var speed = 400
 ## The gap, in pixel, between each mob
 @export var mob_gab = 35
@@ -7,6 +8,12 @@ class_name WallOfDeath extends Area2D
 @export var nb_frames = 7
 ## The distance, in pixel, the wall will retract when flashed
 @export var retract_distance = 1000
+## The distance at wich the music will start to fade
+@export var music_fade_distance = 2000
+## The maximum volume of the music
+@export var max_volume = 0
+## The volume increase when approaching the wall
+@export var volume_increase = 150
 
 ## Whether the wall is retracted or not
 var retracted = false
@@ -19,6 +26,7 @@ var _trying_to_come_back = false
 @onready var player: Player = %Player
 @onready var mobs: Node2D = $Mobs
 @onready var mesh: MeshInstance2D = $MeshInstance2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready():
@@ -46,6 +54,8 @@ func _process(delta):
 
 	mobs.move(player.position.y)
 
+	_fade_music()
+
 
 func _on_body_entered(body: Node2D):
 	if body is Player:
@@ -63,3 +73,15 @@ func show_game_over():
 func retract_wall(stele_position: Vector2):
 	retracted = true
 	_max_retract = stele_position.x - retract_distance
+
+
+func _fade_music():
+	var distance = global_position.distance_to(player.global_position)
+	print(distance)
+	# the closer, the louder (exponentially)
+	if distance < music_fade_distance:
+		audio_stream_player.volume_db = min(
+			max_volume, -80 + volume_increase * (1 - distance / music_fade_distance)
+		)
+	else:
+		audio_stream_player.volume_db = -80
