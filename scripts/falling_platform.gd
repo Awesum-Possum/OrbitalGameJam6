@@ -38,5 +38,6 @@ func break_platform() -> void:
 func break_fr() -> void:
 	breaking = false
 	collider.disabled = true
+	particles.emitting = false
 	sprite.visible = false
 	get_tree().create_timer(falling_timer).timeout.connect(queue_free)
