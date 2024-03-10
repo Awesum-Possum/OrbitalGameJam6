@@ -156,6 +156,14 @@ scale = Vector2(2, 2)
 position = Vector2(16929, 1023)
 scale = Vector2(4, 4)
 
+[node name="Stele5" parent="." instance=ExtResource("13_26qq6")]
+position = Vector2(22538, -1208)
+scale = Vector2(4, 4)
+
+[node name="Stele6" parent="." instance=ExtResource("13_26qq6")]
+position = Vector2(27896, -1564)
+scale = Vector2(4, 4)
+
 [node name="Stele3" parent="." instance=ExtResource("13_26qq6")]
 position = Vector2(15227, 1173)
 scale = Vector2(4, 4)
