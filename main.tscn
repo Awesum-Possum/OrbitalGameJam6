@@ -99,7 +99,7 @@ scale = Vector2(2, 2)
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(-1016, 317)
-speed = 800
+speed = 700
 retract_distance = 1500
 
 [node name="GroundOfDeath" parent="." instance=ExtResource("8_y6kan")]
@@ -158,4 +158,8 @@ scale = Vector2(4, 4)
 
 [node name="Stele3" parent="." instance=ExtResource("13_26qq6")]
 position = Vector2(15227, 1173)
+scale = Vector2(4, 4)
+
+[node name="Stele4" parent="." instance=ExtResource("13_26qq6")]
+position = Vector2(12520, 1752)
 scale = Vector2(4, 4)
