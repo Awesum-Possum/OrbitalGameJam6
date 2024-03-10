@@ -8,7 +8,7 @@
 size = Vector2(32, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(30, 2)
+size = Vector2(7.375, 0.3125)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1u7f5"]
 atlas = ExtResource("2_mkddc")
@@ -65,7 +65,7 @@ one_way_collision = true
 scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -5)
+position = Vector2(0, -1.21875)
 shape = SubResource("RectangleShape2D_76pf0")
 debug_color = Color(0.929412, 0.0705882, 0.619608, 0.419608)
 
