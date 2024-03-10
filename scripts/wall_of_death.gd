@@ -18,11 +18,13 @@ class_name WallOfDeath extends Area2D
 ## Whether the wall is retracted or not
 var retracted = false
 
-var dog_scene := preload("res://doggo.tscn")
+var mobs_scene := preload("res://wall_mobs.tscn")
 var game_over = preload("res://game_over.tscn")
 var _max_retract = 0
 var _trying_to_come_back = false
 var _end = false
+
+var _frame_type = ["default", "blob", "snake"]
 
 @onready var player: Player = %Player
 @onready var mobs: Node2D = $Mobs
@@ -33,10 +35,12 @@ var _end = false
 func _ready():
 	var start_pos = mesh.scale.y / 2
 	for i in range(0, mesh.scale.y, mob_gab):
-		var dog = dog_scene.instantiate()
-		dog.position.y = start_pos - i
-		dog.frame = randi() % nb_frames
-		mobs.add_child(dog)
+		var mob: AnimatedSprite2D = mobs_scene.instantiate()
+		mob.position.y = start_pos - i
+		var frame_type = _frame_type[randi() % _frame_type.size()]
+		mob.call_deferred("play", frame_type)
+		mob.set_deferred("frame", randi() % nb_frames)
+		mobs.add_child(mob)
 
 
 func _process(delta):
