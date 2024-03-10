@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="2_mkddc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
-size = Vector2(88, 10)
+size = Vector2(94, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(84, 2)
+size = Vector2(91, 2)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 freeze = true
@@ -15,17 +15,22 @@ freeze_mode = 1
 script = ExtResource("1_sew12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_fybig")
 one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -7)
+position = Vector2(-2.25, -7)
 shape = SubResource("RectangleShape2D_76pf0")
+debug_color = Color(0.929412, 0.0705882, 0.619608, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(4, 4)
 texture = ExtResource("2_mkddc")
 region_enabled = true
 region_rect = Rect2(96, 10, 96, 18)
