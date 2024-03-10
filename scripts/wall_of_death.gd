@@ -79,7 +79,6 @@ func retract_wall(stele_position: Vector2):
 
 func _fade_music():
 	var distance = global_position.distance_to(player.global_position)
-	print(distance)
 	# the closer, the louder (exponentially)
 	if distance < music_fade_distance:
 		audio_stream_player.volume_db = min(
