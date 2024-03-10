@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://blxaqvdcs0ru6"]
+[gd_scene load_steps=6 format=3 uid="uid://c3q3y13ymmbs6"]
 
 [ext_resource type="FontFile" uid="uid://b5ancu1u40cps" path="res://fonts/m6x11.ttf" id="1_1ldt5"]
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_uku6s"]
-[ext_resource type="AudioStream" uid="uid://c66s24snbs13h" path="res://assets/ForTheLoveOfLife.ogg" id="3_2rrq1"]
-[ext_resource type="AudioStream" uid="uid://8slyat6oxlao" path="res://assets/Morte.ogg" id="4_ilt7c"]
+[ext_resource type="AudioStream" uid="uid://c653bepm64iny" path="res://assets/Morte.ogg" id="3_673wx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sro42"]
 corner_radius_top_left = 20
@@ -76,12 +75,9 @@ theme_override_fonts/font = ExtResource("1_1ldt5")
 theme_override_font_sizes/font_size = 100
 text = "Quit"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_2rrq1")
-autoplay = true
-
-[node name="Basso" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ilt7c")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_673wx")
+bus = &"SFX"
 
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/PanelContainer/MarginContainer/Quit" to="." method="_on_quit_pressed"]

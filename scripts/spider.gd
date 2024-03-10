@@ -50,7 +50,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 	Globals.game_over.emit()
 	get_tree().create_timer(0.5).timeout.connect(
-		func(): get_tree().root.add_child(_game_over.instantiate())
+		func(): 
+			var tree := get_tree()
+			tree.root.add_child(_game_over.instantiate())
+			tree.current_scene.get_node("AudioStreamPlayer").playing = false
 	)
 	player.visible = false
 	player.speed = 0

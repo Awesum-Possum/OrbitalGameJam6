@@ -2,7 +2,7 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_yx622"]
 
-[node name="WebString" type="Node2D"]
+[node name="WebString" type="Node2D" groups=["web"]]
 position = Vector2(0, -16)
 scale = Vector2(10, 32)
 

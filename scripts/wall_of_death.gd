@@ -59,18 +59,22 @@ func _process(delta):
 
 
 func _on_body_entered(body: Node2D):
-	if body is Player:
-		Globals.game_over.emit()
+	var p = body as Player
+	if p:
+		var should_show_game_over = not p.game_over
+		if should_show_game_over:
+			Globals.game_over.emit()
 		speed = 3000
 		_end = true
-		get_tree().create_timer(0.5).timeout.connect(show_game_over)
+		get_tree().create_timer(0.5).timeout.connect(func(): show_game_over(should_show_game_over))
 
 
 ## Show the game over screen
-func show_game_over():
+func show_game_over(instanciate: bool = true):
 	speed = 0
-	get_tree().current_scene.get_node('AudioStreamPlayer').playing = false
-	get_tree().root.add_child(game_over.instantiate())
+	get_tree().current_scene.get_node("AudioStreamPlayer").playing = false
+	if instanciate:
+		get_tree().root.add_child(game_over.instantiate())
 
 
 func retract_wall(stele_position: Vector2):
