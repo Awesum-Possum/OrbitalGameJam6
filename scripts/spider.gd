@@ -56,8 +56,8 @@ func _on_body_entered(body: Node2D) -> void:
 	_over = true
 
 
+## Spawns a web at the spider's position
 func spawn_web():
-	print("spawning web at", position)
 	var web = _web_string.instantiate()
 	web.position = position
 	web.z_index = z_index - 1
