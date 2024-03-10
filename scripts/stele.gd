@@ -1,6 +1,5 @@
 class_name Stele extends Area2D
 
-## The white screen that will be displayed when the stele explodes
 ## The number of frames the white screen will be displayed
 @export var white_screen_duration: int = 2
 
@@ -50,6 +49,5 @@ func _on_animation_finished():
 
 
 func _activate_white_screen():
-	print("activate white screen")
 	white_screen.show()
 	white_screen.get_node("AnimationPlayer").play("fade_away")
