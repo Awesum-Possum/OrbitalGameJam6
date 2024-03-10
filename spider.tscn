@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://do1lnkg13dgde"]
+
+[ext_resource type="Texture2D" uid="uid://bdlkvoevcrdno" path="res://assets/DeathWall.png" id="1_53bjm"]
+[ext_resource type="Script" path="res://scripts/spider.gd" id="1_naxn1"]
+[ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="2_uqq0s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e70oh"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o33gk"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7y15m"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lf2q"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nin8"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsjfw"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lekk5"]
+atlas = ExtResource("1_53bjm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yq0fs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e70oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o33gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7y15m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lf2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nin8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsjfw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lekk5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyaxx"]
+radius = 26.0192
+
+[node name="Spider" type="Area2D"]
+script = ExtResource("1_naxn1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_yq0fs")
+autoplay = "default"
+speed_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-9.79081, -9.19949)
+scale = Vector2(0.169383, 0.179776)
+color = Color(0.72549, 0.14902, 0.172549, 1)
+energy = 2.0
+texture = ExtResource("2_uqq0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+shape = SubResource("CircleShape2D_jyaxx")
