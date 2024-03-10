@@ -1,15 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://7v5m3lu6n5lv"]
 
 [ext_resource type="Script" path="res://scripts/falling_platform.gd" id="1_sew12"]
+[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="2_mkddc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
-size = Vector2(250, 100)
-
-[sub_resource type="QuadMesh" id="QuadMesh_gacv5"]
-size = Vector2(250, 100)
+size = Vector2(88, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
-size = Vector2(250, 30)
+size = Vector2(84, 2)
 
 [node name="RigidBody2D" type="RigidBody2D"]
 freeze = true
@@ -18,14 +16,18 @@ script = ExtResource("1_sew12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fybig")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_gacv5")
+one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -50)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_76pf0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_mkddc")
+region_enabled = true
+region_rect = Rect2(96, 10, 96, 18)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
