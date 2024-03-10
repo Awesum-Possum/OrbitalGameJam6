@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/real_menu.gd" id="1_xsix2"]
 [ext_resource type="FontFile" uid="uid://b5ancu1u40cps" path="res://fonts/m6x11.ttf" id="2_vis01"]
 [ext_resource type="Texture2D" uid="uid://2ynqds7q7hku" path="res://assets/MiddleTree.png" id="2_y0qj7"]
-[ext_resource type="Texture2D" uid="uid://qhgk2q324vvo" path="res://assets/DeathWall.png" id="3_evu6q"]
+[ext_resource type="Texture2D" uid="uid://bdlkvoevcrdno" path="res://assets/DeathWall.png" id="3_evu6q"]
 [ext_resource type="Texture2D" uid="uid://cp3cnpcnrgh8a" path="res://assets/noise.jpg" id="3_myav7"]
 [ext_resource type="VideoStream" path="res://assets/white_noise.ogv" id="3_v1xc3"]
 [ext_resource type="Texture2D" uid="uid://bq57pdleblw15" path="res://assets/light.webp" id="4_5hbfx"]
