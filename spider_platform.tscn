@@ -13,6 +13,7 @@ size = Vector2(200, 19.5)
 
 [node name="SpiderPlatform" type="StaticBody2D"]
 script = ExtResource("1_k0clh")
+spider_height = 800
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("QuadMesh_2ktj5")
