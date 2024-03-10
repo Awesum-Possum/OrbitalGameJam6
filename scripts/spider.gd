@@ -30,6 +30,7 @@ func _process(delta):
 		position.y -= speed * delta
 	else:
 		visible = false
+		queue_free()
 
 
 ## Makes the spider go down
