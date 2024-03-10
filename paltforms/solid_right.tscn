@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://kw4hvtyc84vt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sgphv"]
+load_path = "res://.godot/imported/Platforms.png-6dd9f8596b44f88a8025792705dd5d06.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v15du"]
+size = Vector2(32, 11)
+
+[node name="SolidLeft" type="StaticBody2D"]
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("CompressedTexture2D_sgphv")
+region_enabled = true
+region_rect = Rect2(256, 0, 32, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_v15du")

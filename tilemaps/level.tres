@@ -1,19 +1,53 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://buwoci1md66qg"]
+[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://buwoci1md66qg"]
 
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="1_yxb6r"]
 [ext_resource type="PackedScene" uid="uid://dx5va8mi33d3s" path="res://falling_platform_mid.tscn" id="2_jbg5h"]
+[ext_resource type="PackedScene" uid="uid://ctuou68wubsmf" path="res://paltforms/StaticCube/static_cube_00.tscn" id="2_p1b2o"]
 [ext_resource type="PackedScene" uid="uid://c5eqhxgtl7w1u" path="res://falling_platform_right.tscn" id="3_7snb7"]
+[ext_resource type="PackedScene" uid="uid://c148y1ko8y4jk" path="res://paltforms/StaticCube/static_cube_01.tscn" id="3_je0fm"]
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="4_e5go0"]
-[ext_resource type="PackedScene" uid="uid://m5ncwyt2tjm5" path="res://SquareFallingPlat.tscn" id="5_3b1xs"]
-[ext_resource type="PackedScene" uid="uid://c148y1ko8y4jk" path="res://StaticCube.tscn" id="6_cue8g"]
+[ext_resource type="PackedScene" uid="uid://cgh2bcjw0b2jv" path="res://paltforms/StaticCube/static_cube_02.tscn" id="4_hggw2"]
+[ext_resource type="PackedScene" uid="uid://bbqt3x3bfp025" path="res://paltforms/StaticCube/static_cube_10.tscn" id="5_dewhq"]
+[ext_resource type="PackedScene" uid="uid://ckx6wcjio8olx" path="res://paltforms/StaticCube/static_cube_11.tscn" id="6_aaloi"]
+[ext_resource type="PackedScene" uid="uid://burls4rbnnw62" path="res://paltforms/StaticCube/static_cube_12.tscn" id="7_hfe4h"]
+[ext_resource type="PackedScene" uid="uid://dia2hy0b2hd3u" path="res://paltforms/StaticCube/static_cube_20.tscn" id="8_pl4ck"]
+[ext_resource type="PackedScene" uid="uid://ccl8wcygmdkxr" path="res://paltforms/StaticCube/static_cube_21.tscn" id="9_vtrki"]
+[ext_resource type="PackedScene" uid="uid://b12lhnsn671nw" path="res://paltforms/StaticCube/static_cube_22.tscn" id="10_43xk2"]
+[ext_resource type="PackedScene" uid="uid://m5ncwyt2tjm5" path="res://paltforms/Breakable/destructible_cube_00.tscn" id="11_uqg7l"]
+[ext_resource type="PackedScene" uid="uid://rbywl2s35mbb" path="res://paltforms/Breakable/destructible_cube_01.tscn" id="13_fcf2m"]
+[ext_resource type="PackedScene" uid="uid://dxnu163pgi3gl" path="res://paltforms/Breakable/destructible_cube_02.tscn" id="14_bpq2j"]
+[ext_resource type="PackedScene" uid="uid://yo5x71ei35uu" path="res://paltforms/Breakable/destructible_cube_10.tscn" id="15_7fx0d"]
+[ext_resource type="PackedScene" uid="uid://bso5y1augr8uv" path="res://paltforms/Breakable/destructible_cube_11.tscn" id="16_ctmgj"]
+[ext_resource type="PackedScene" uid="uid://b58vxhoxmf3xh" path="res://paltforms/Breakable/destructible_cube_12.tscn" id="17_nsjhq"]
+[ext_resource type="PackedScene" uid="uid://b3xkhrxuhvep5" path="res://paltforms/Breakable/destructible_cube_20.tscn" id="18_sc64a"]
+[ext_resource type="PackedScene" uid="uid://cwyw3cmoh24q" path="res://paltforms/Breakable/destructible_cube_21.tscn" id="19_i7scj"]
+[ext_resource type="PackedScene" uid="uid://djqfm5cesoajg" path="res://paltforms/Breakable/destructible_cube_22.tscn" id="20_hpj0w"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bq6ri"]
 scenes/1/scene = ExtResource("1_yxb6r")
 scenes/2/scene = ExtResource("2_jbg5h")
 scenes/3/scene = ExtResource("3_7snb7")
 scenes/4/scene = ExtResource("4_e5go0")
-scenes/5/scene = ExtResource("5_3b1xs")
-scenes/6/scene = ExtResource("6_cue8g")
+scenes/5/scene = ExtResource("11_uqg7l")
+scenes/6/scene = ExtResource("3_je0fm")
+scenes/10/scene = ExtResource("2_p1b2o")
+scenes/11/scene = ExtResource("3_je0fm")
+scenes/12/scene = ExtResource("4_hggw2")
+scenes/13/scene = ExtResource("5_dewhq")
+scenes/14/scene = ExtResource("6_aaloi")
+scenes/15/scene = ExtResource("7_hfe4h")
+scenes/16/scene = ExtResource("8_pl4ck")
+scenes/17/scene = ExtResource("9_vtrki")
+scenes/18/scene = ExtResource("10_43xk2")
+scenes/19/scene = ExtResource("11_uqg7l")
+scenes/20/scene = ExtResource("13_fcf2m")
+scenes/21/scene = ExtResource("14_bpq2j")
+scenes/22/scene = ExtResource("15_7fx0d")
+scenes/23/scene = ExtResource("16_ctmgj")
+scenes/24/scene = ExtResource("17_nsjhq")
+scenes/25/scene = ExtResource("18_sc64a")
+scenes/26/scene = ExtResource("19_i7scj")
+scenes/27/scene = ExtResource("20_hpj0w")
 
 [resource]
 tile_size = Vector2i(32, 32)

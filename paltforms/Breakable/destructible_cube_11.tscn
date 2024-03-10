@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://bso5y1augr8uv"]
+
+[ext_resource type="Script" path="res://scripts/falling_platform.gd" id="1_wfd6r"]
+[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="2_kqopo"]
+[ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="3_imrcd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_encus"]
+size = Vector2(32, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkocs"]
+size = Vector2(8.5, 8.4375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vd4r"]
+atlas = ExtResource("2_kqopo")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxn6g"]
+atlas = ExtResource("2_kqopo")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2estc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vd4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxn6g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rr2co"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 16.0
+angle_min = -157.0
+angle_max = 21.5
+inherit_velocity_ratio = 0.795
+spread = 139.061
+angular_velocity_min = -7.15
+angular_velocity_max = 228.68
+gravity = Vector3(0, 98, 0)
+radial_accel_min = -0.25
+radial_accel_max = 0.75
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mei0t"]
+atlas = ExtResource("2_kqopo")
+region = Rect2(95, 74, 13, 7)
+
+[node name="FallingPlatformSquare" type="StaticBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_wfd6r")
+breaking_timer = 0.5
+falling_timer = 2.0
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_encus")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.125, -0.03125)
+shape = SubResource("RectangleShape2D_hkocs")
+debug_color = Color(0.929412, 0.0705882, 0.619608, 0.419608)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2estc")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 0.25)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_rr2co")
+texture = SubResource("AtlasTexture_mei0t")
+lifetime = 4.0
+speed_scale = 2.51
+explosiveness = 0.19
+randomness = 0.5
+trail_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_imrcd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
