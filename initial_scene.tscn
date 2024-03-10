@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c62xka6a8jhtp"]
+[gd_scene load_steps=20 format=3 uid="uid://c62xka6a8jhtp"]
 
 [ext_resource type="Script" path="res://scripts/initial_scene.gd" id="1_eecij"]
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_lb7fg"]
@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="8_r33a5"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
 [ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="10_o4wmy"]
-[ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="13_32e1n"]
+[ext_resource type="PackedScene" path="res://ground_of_death.tscn" id="13_32e1n"]
+[ext_resource type="AudioStream" uid="uid://wdcadp3ar1d8" path="res://assets/panico.ogg" id="14_kdrdv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -145,3 +146,8 @@ position = Vector2(-1016, 317)
 
 [node name="GroundOfDeath" parent="." instance=ExtResource("13_32e1n")]
 position = Vector2(1559, 2659)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_kdrdv")
+autoplay = true
+bus = &"Music"
