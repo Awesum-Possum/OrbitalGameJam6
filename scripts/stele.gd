@@ -31,10 +31,6 @@ func _on_body_entered(body: Node2D):
 	_to_explode = true
 
 
-func _start_explosion():
-	animation.play("explosion")
-
-
 func _on_animation_finished():
 	if animation.animation.contains("default") and _to_explode and not _already_exploded:
 		animation.play("explosion")
