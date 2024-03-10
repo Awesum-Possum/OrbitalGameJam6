@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="10_2sl5t"]
 [ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="10_o4wmy"]
 [ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="13_32e1n"]
-[ext_resource type="AudioStream" uid="uid://wdcadp3ar1d8" path="res://assets/panico.ogg" id="14_kdrdv"]
+[ext_resource type="AudioStream" uid="uid://dj0a7htucna1h" path="res://assets/panico.ogg" id="14_kdrdv"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_nh1hs"]
 size = Vector2(1000, 100)
@@ -149,5 +149,5 @@ position = Vector2(1559, 2659)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_kdrdv")
+volume_db = 1.874
 autoplay = true
-bus = &"Music"
