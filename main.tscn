@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bu0mpb7ble18m"]
+[gd_scene load_steps=21 format=3 uid="uid://bu0mpb7ble18m"]
 
 [ext_resource type="Texture2D" uid="uid://doccdq5y63m42" path="res://assets/FlatColorBG.png" id="1_w4hul"]
 [ext_resource type="PackedScene" uid="uid://cgdammcfsutfo" path="res://white_screen.tscn" id="1_xftbk"]
@@ -8,14 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="5_3rg6c"]
 [ext_resource type="PackedScene" uid="uid://cns3jtk30gqjp" path="res://wall_of_death.tscn" id="7_it3pt"]
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="8_vcyjv"]
-[ext_resource type="PackedScene" uid="uid://dwylqcb2sfjtn" path="res://ground_of_death.tscn" id="8_y6kan"]
-[ext_resource type="AudioStream" uid="uid://dj0a7htucna1h" path="res://assets/panico.ogg" id="9_73txx"]
+[ext_resource type="PackedScene" path="res://ground_of_death.tscn" id="8_y6kan"]
+[ext_resource type="AudioStream" uid="uid://wdcadp3ar1d8" path="res://assets/panico.ogg" id="9_73txx"]
 [ext_resource type="PackedScene" uid="uid://ek7huh6rcnc0" path="res://safe_and_fast_platform.tscn" id="10_hi2fj"]
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="11_0uye6"]
 [ext_resource type="PackedScene" uid="uid://q14s54w1bgw7" path="res://spider_platform.tscn" id="12_0fqfe"]
 [ext_resource type="PackedScene" uid="uid://cd7vx5ipurp0a" path="res://stele.tscn" id="13_26qq6"]
 [ext_resource type="PackedScene" uid="uid://bljr3wrvsbkny" path="res://raf_test.tscn" id="15_gm1k8"]
-[ext_resource type="PackedScene" uid="uid://w7rpa0kvvoew" path="res://ending_trigger.tscn" id="16_5ad58"]
+[ext_resource type="PackedScene" path="res://ending_trigger.tscn" id="16_5ad58"]
+[ext_resource type="PackedScene" uid="uid://c5eqhxgtl7w1u" path="res://falling_platform_right.tscn" id="17_wanpf"]
 
 [sub_resource type="Gradient" id="Gradient_5j7j3"]
 offsets = PackedFloat32Array(0, 0.570895, 1)
@@ -30,11 +31,6 @@ tonemap_mode = 3
 tonemap_white = 4.75
 adjustment_enabled = true
 adjustment_color_correction = SubResource("GradientTexture2D_b2w4r")
-
-[sub_resource type="QuadMesh" id="QuadMesh_vy0tp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5keg"]
-size = Vector2(1, 1)
 
 [node name="Main" type="Node2D"]
 
@@ -121,7 +117,7 @@ scale = Vector2(4, 4)
 jump_force = 2000
 
 [node name="FallingPlatform" parent="." instance=ExtResource("11_0uye6")]
-position = Vector2(2265, 855)
+position = Vector2(2153, 869)
 
 [node name="JumpPlatform2" parent="." instance=ExtResource("8_vcyjv")]
 position = Vector2(2788, 1022)
@@ -132,21 +128,12 @@ jump_force = 2000
 position = Vector2(3231, 891)
 stuck_force = 1.5
 
-[node name="Platform2" type="StaticBody2D" parent="."]
+[node name="Platform3" parent="." instance=ExtResource("10_hi2fj")]
 position = Vector2(4046, 1171)
-scale = Vector2(1000, 50)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
-mesh = SubResource("QuadMesh_vy0tp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-shape = SubResource("RectangleShape2D_k5keg")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Stele" parent="." instance=ExtResource("13_26qq6")]
 z_index = -1
-position = Vector2(4395, 1020)
+position = Vector2(4395, 1038)
 scale = Vector2(4, 4)
 
 [node name="Raftest" parent="." instance=ExtResource("15_gm1k8")]
@@ -176,3 +163,6 @@ scale = Vector2(4, 4)
 [node name="Area2D" parent="." instance=ExtResource("16_5ad58")]
 position = Vector2(29827, -2413)
 scale = Vector2(100, 100)
+
+[node name="FallingPlatform2" parent="." instance=ExtResource("17_wanpf")]
+position = Vector2(2280, 869)
