@@ -50,7 +50,7 @@ func _physics_process(delta):
 	if game_over:
 		return
 
-	if not is_on_floor() and hits_wall():
+	if not is_on_floor() and hits_wall() and can_wall_jump:
 		if velocity.y > 0:
 			velocity.y += Globals.GRAVITY * delta * wall_friction * 2
 		else:

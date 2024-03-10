@@ -11,6 +11,7 @@ var breaking: bool = false
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var collider: CollisionShape2D = $Collider
+@onready var area = $Area2D/CollisionShape2D
 @onready var particles: GPUParticles2D = $Particles
 @onready var _audio = $AudioStreamPlayer
 
@@ -30,6 +31,8 @@ func break_platform() -> void:
 		sprite.play("default")
 		particles.emitting = true
 		_audio.play()
+		area.disabled = true
+		$Area2D.monitoring = false
 		get_tree().create_timer(breaking_timer).timeout.connect(break_fr)
 
 func break_fr() -> void:

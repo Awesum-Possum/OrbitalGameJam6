@@ -1,15 +1,19 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://buwoci1md66qg"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://buwoci1md66qg"]
 
 [ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="1_yxb6r"]
 [ext_resource type="PackedScene" uid="uid://dx5va8mi33d3s" path="res://falling_platform_mid.tscn" id="2_jbg5h"]
 [ext_resource type="PackedScene" uid="uid://c5eqhxgtl7w1u" path="res://falling_platform_right.tscn" id="3_7snb7"]
 [ext_resource type="PackedScene" uid="uid://bv35v55dwva35" path="res://jump_platform.tscn" id="4_e5go0"]
+[ext_resource type="PackedScene" uid="uid://m5ncwyt2tjm5" path="res://SquareFallingPlat.tscn" id="5_3b1xs"]
+[ext_resource type="PackedScene" uid="uid://c148y1ko8y4jk" path="res://StaticCube.tscn" id="6_cue8g"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_bq6ri"]
 scenes/1/scene = ExtResource("1_yxb6r")
 scenes/2/scene = ExtResource("2_jbg5h")
 scenes/3/scene = ExtResource("3_7snb7")
 scenes/4/scene = ExtResource("4_e5go0")
+scenes/5/scene = ExtResource("5_3b1xs")
+scenes/6/scene = ExtResource("6_cue8g")
 
 [resource]
 tile_size = Vector2i(32, 32)

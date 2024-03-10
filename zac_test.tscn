@@ -1,31 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://mn6i6cl68a65"]
 
-[ext_resource type="PackedScene" uid="uid://7v5m3lu6n5lv" path="res://falling_platform.tscn" id="1_6ugp2"]
+[ext_resource type="TileSet" uid="uid://buwoci1md66qg" path="res://tilemaps/level.tres" id="2_nkv8y"]
 [ext_resource type="PackedScene" uid="uid://csvwlhcc36hyr" path="res://player.tscn" id="2_s4hlx"]
 
 [node name="ZacTest" type="Node2D"]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(384, 1085)
-
-[node name="RigidBody2D4" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(848, 669)
-
-[node name="RigidBody2D6" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(1315, 669)
-
-[node name="RigidBody2D2" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(613, 760)
-rotation = -1.5708
-
-[node name="RigidBody2D5" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(1089, 412)
-rotation = -1.5708
-
-[node name="RigidBody2D3" parent="." instance=ExtResource("1_6ugp2")]
-position = Vector2(369, 562)
-rotation = 1.5708
-
 [node name="Player" parent="." instance=ExtResource("2_s4hlx")]
-position = Vector2(306, 873)
+position = Vector2(306, -55)
 jump_velocity = 1300
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_nkv8y")
+format = 2
+layer_0/tile_data = PackedInt32Array(131074, 0, 65536, 131078, 0, 131072, 131082, 0, 196608, 6, 0, 262144, 10, 0, 262144, 2, 0, 262144, 65552, 0, 327680, -196592, 0, 327680, -458736, 0, 327680, -65520, 0, 327680, -327664, 0, 327680, -131059, 0, 327680, -393209, 0, 327680, 262159, 0, 131072, 262163, 0, 196608, 262155, 0, 65536, -65516, 0, 131072, -65512, 0, 196608, -196586, 0, 262144, 327705, 0, 393216, 655376, 0, 393216, 655378, 0, 393216, 655374, 0, 393216)
