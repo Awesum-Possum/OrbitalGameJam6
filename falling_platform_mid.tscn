@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://7v5m3lu6n5lv"]
+[gd_scene load_steps=11 format=3 uid="uid://dx5va8mi33d3s"]
 
-[ext_resource type="Script" path="res://scripts/falling_platform.gd" id="1_sew12"]
-[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="2_mkddc"]
-[ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="3_8fp0e"]
+[ext_resource type="Script" path="res://scripts/falling_platform.gd" id="1_oyjpi"]
+[ext_resource type="Texture2D" uid="uid://bktphji27ec61" path="res://assets/Platforms.png" id="2_371pi"]
+[ext_resource type="AudioStream" uid="uid://dnlfbnd80g7ei" path="res://assets/Click.ogg" id="3_pife2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fybig"]
 size = Vector2(32, 10)
@@ -10,22 +10,22 @@ size = Vector2(32, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76pf0"]
 size = Vector2(30, 2)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1u7f5"]
-atlas = ExtResource("2_mkddc")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iohte"]
+atlas = ExtResource("2_371pi")
+region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lyy26"]
-atlas = ExtResource("2_mkddc")
-region = Rect2(96, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_h101g"]
+atlas = ExtResource("2_371pi")
+region = Rect2(128, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_frxf5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1u7f5")
+"texture": SubResource("AtlasTexture_iohte")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lyy26")
+"texture": SubResource("AtlasTexture_h101g")
 }],
 "loop": false,
 "name": &"default",
@@ -47,12 +47,12 @@ radial_accel_min = -0.25
 radial_accel_max = 0.75
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mei0t"]
-atlas = ExtResource("2_mkddc")
+atlas = ExtResource("2_371pi")
 region = Rect2(95, 74, 13, 7)
 
 [node name="FallingPlatform" type="StaticBody2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_sew12")
+script = ExtResource("1_oyjpi")
 breaking_timer = 0.5
 falling_timer = 2.0
 
@@ -62,12 +62,10 @@ shape = SubResource("RectangleShape2D_fybig")
 one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_76pf0")
-debug_color = Color(0.929412, 0.0705882, 0.619608, 0.419608)
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -85,6 +83,6 @@ randomness = 0.5
 trail_enabled = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_8fp0e")
+stream = ExtResource("3_pife2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
